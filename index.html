@@ -2220,24 +2220,46 @@
             window.confirmUploadExcelToFirebase = confirmUploadExcelToFirebase;
             if (pendingExcelQuestions.length === 0) return;
 
-            closeExcelPreviewModal();
-            showStatus(`Đang tải ${pendingExcelQuestions.length} câu hỏi lên Firebase...`, "success");
-
-            try {
-                const qRef = collection(db, 'artifacts', appId, 'public', 'data', 'questions');
-                for (const q of pendingExcelQuestions) {
-                    await addDoc(qRef, {
-                        question: q.question,
-                        options: q.options,
-                        correctIndex: q.correctIndex,
-                        createdAt: serverTimestamp()
-                    });
-                }
-                showStatus(`Đã lưu thành công ${pendingExcelQuestions.length} câu hỏi từ Excel vào Firebase!`, "success");
-                pendingExcelQuestions = [];
-            } catch (err) {
-                showStatus("Lỗi lưu câu hỏi Excel: " + err.message, "error");
+            const targetQuizId = document.getElementById('adminQuestionQuizSelect')?.value;
+            if (!targetQuizId) {
+                showStatus("Vui lòng chọn cuộc thi trước khi nạp Excel!", "error");
+                return;
             }
+
+            closeExcelPreviewModal();
+            showStatus(`Đang tải ${pendingExcelQuestions.length} câu hỏi lên cuộc thi...`, "success");
+
+            let successCount = 0;
+            for (const q of pendingExcelQuestions) {
+                const newQ = {
+                    firestoreId: 'q-excel-' + Date.now() + '-' + Math.random().toString(36).substring(2,5),
+                    quizId: targetQuizId,
+                    question: q.question,
+                    options: q.options,
+                    correctIndex: q.correctIndex
+                };
+
+                activeQuestionsPool.push(newQ);
+                EMBEDDED_QUESTIONS.push(newQ);
+                successCount++;
+
+                if (db && collection && addDoc) {
+                    try {
+                        const qRef = collection(db, 'artifacts', appId, 'public', 'data', 'questions');
+                        await addDoc(qRef, {
+                            quizId: targetQuizId,
+                            question: q.question,
+                            options: q.options,
+                            correctIndex: q.correctIndex,
+                            createdAt: serverTimestamp()
+                        });
+                    } catch (err) {}
+                }
+            }
+
+            pendingExcelQuestions = [];
+            renderAdminQuestionsList();
+            showStatus(`Đã nạp thành công ${successCount} câu hỏi từ Excel vào cuộc thi!`, "success");
         };
 
         // TẠO VÀ TẢI FILE EXCEL MẪU DẠNG BLOB

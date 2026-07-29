@@ -1799,13 +1799,15 @@
                     }));
 
                     if (activeQuizzesList.length === 0) {
+                        activeQuizzesList = [DEFAULT_QUIZ];
                         seedDefaultQuiz();
-                    } else {
-                        updateQuizDropdowns();
-                        renderAdminQuizzesList();
                     }
+                    updateQuizDropdowns();
+                    renderAdminQuizzesList();
                 }, (err) => {
                     console.error("Lỗi Firestore Quizzes:", err);
+                    activeQuizzesList = [DEFAULT_QUIZ];
+                    updateQuizDropdowns();
                 });
             } catch (e) {
                 console.error("Lỗi khởi tạo Quizzes listener:", e);
@@ -1828,6 +1830,10 @@
                     renderAdminQuestionsList();
                 }, (err) => {
                     console.error("Lỗi Firestore Questions:", err);
+                    if (activeQuestionsPool.length === 0) {
+                        activeQuestionsPool = EMBEDDED_QUESTIONS;
+                    }
+                    renderAdminQuestionsList();
                 });
             } catch (e) {
                 console.error("Lỗi khởi tạo Questions listener:", e);

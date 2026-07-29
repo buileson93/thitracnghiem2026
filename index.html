@@ -51,26 +51,25 @@
 <body class="bg-slate-100 min-h-screen text-slate-800">
 
     <!-- Thanh Tiêu Đề / Navigation -->
-    <header class="bg-indigo-700 text-white shadow-lg sticky top-0 z-40">
-        <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
+    <header class="bg-slate-900/95 text-white shadow-xl sticky top-0 z-40 backdrop-blur-md border-b border-slate-800">
+        <div class="max-w-6xl mx-auto px-4 py-2.5 flex justify-between items-center">
             <div class="flex items-center space-x-3 cursor-pointer" onclick="switchView('login')">
-                <img src="vatm-mirats-full-hover.svg" alt="VATM MIRATS Logo" class="h-9 md:h-10 w-auto object-contain drop-shadow-sm hover:scale-105 transition bg-white/10 p-1 rounded-lg border border-white/20">
+                <div class="bg-white p-1.5 rounded-xl shadow-md border border-slate-200 flex items-center justify-center hover:scale-[1.02] transition">
+                    <img src="vatm-mirats-full-hover.svg" alt="VATM MIRATS Logo" class="h-8 md:h-9 w-auto object-contain">
+                </div>
                 <div>
-                    <h1 class="font-bold text-base md:text-lg tracking-wide leading-tight font-heading">HỆ THỐNG THI TRẮC NGHIỆM</h1>
-                    <span class="text-[10px] text-amber-300 font-semibold tracking-wider block uppercase">CÔNG TY QUẢN LÝ BAY MIỀN TRUNG (VATM / MIRATS)</span>
+                    <h1 class="font-extrabold text-base md:text-lg tracking-tight leading-none font-heading text-white">HỆ THỐNG THI TRẮC NGHIỆM</h1>
+                    <span class="text-[10px] text-amber-400 font-bold tracking-wider block uppercase mt-0.5">CÔNG TY QUẢN LÝ BAY MIỀN TRUNG (VATM / MIRATS)</span>
                 </div>
             </div>
             <div id="navButtons" class="flex items-center space-x-2">
-                <a href="DESIGN.md" target="_blank" class="hidden md:inline-flex items-center space-x-1 text-xs bg-indigo-900/60 hover:bg-indigo-900 text-indigo-200 px-2.5 py-1 rounded-lg border border-indigo-500/40 transition font-mono">
-                    <span class="text-amber-300 font-bold">DESIGN</span><span class="text-white">.md</span>
-                </a>
-                <button id="btnNavRank" onclick="switchView('leaderboard')" class="bg-indigo-600 hover:bg-indigo-800 text-white px-3 py-1.5 rounded-lg text-sm font-medium transition flex items-center space-x-1 border border-indigo-500">
+                <button id="btnNavRank" onclick="switchView('leaderboard')" class="bg-indigo-600/90 hover:bg-indigo-600 text-white px-3.5 py-2 rounded-xl text-xs font-bold transition flex items-center space-x-1.5 border border-indigo-500/50 shadow-sm">
                     <i class="fas fa-trophy text-amber-300"></i>
                     <span class="hidden sm:inline">Bảng Xếp Hạng</span>
                 </button>
-                <button id="btnNavAdmin" onclick="openAdminAuthModal()" class="bg-amber-500 hover:bg-amber-600 text-white px-3 py-1.5 rounded-lg text-sm font-medium transition flex items-center space-x-1 border border-amber-400">
-                    <i class="fas fa-lock"></i>
-                    <span class="hidden sm:inline">Quản Trị viên</span>
+                <button id="btnNavAdmin" onclick="openAdminAuthModal()" class="bg-amber-500 hover:bg-amber-600 text-white px-3.5 py-2 rounded-xl text-xs font-bold transition flex items-center space-x-1.5 border border-amber-400/80 shadow-sm">
+                    <i class="fas fa-user-shield"></i>
+                    <span class="hidden sm:inline">Quản Trị Viên</span>
                 </button>
             </div>
         </div>
@@ -83,13 +82,15 @@
         <div id="statusAlert" class="hidden mb-4 p-4 rounded-xl text-sm font-medium transition-all shadow-sm"></div>
 
         <!-- MÀN HÌNH 1: ĐĂNG NHẬP THÍ SINH -->
-        <section id="viewLogin" class="max-w-md mx-auto bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden">
-            <div class="bg-gradient-to-r from-indigo-700 via-indigo-800 to-slate-900 p-6 text-white text-center relative overflow-hidden">
+        <section id="viewLogin" class="max-w-md mx-auto bg-white rounded-2xl shadow-2xl border border-slate-200/80 overflow-hidden">
+            <div class="bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 p-6 text-white text-center relative border-b border-indigo-900/40">
                 <div class="flex justify-center mb-3">
-                    <img src="vatm-mirats-full-hover.svg" alt="VATM MIRATS Logo" class="h-12 md:h-14 w-auto object-contain bg-white/95 p-2 rounded-xl shadow-lg border border-white/30 hover:scale-105 transition">
+                    <div class="bg-white p-2.5 rounded-2xl shadow-xl border border-slate-100 hover:scale-[1.02] transition">
+                        <img src="vatm-mirats-full-hover.svg" alt="VATM MIRATS Logo" class="h-12 md:h-14 w-auto object-contain">
+                    </div>
                 </div>
-                <h2 class="text-2xl font-extrabold font-heading">Đăng Nhập Dự Thi</h2>
-                <p class="text-indigo-200 text-xs mt-1">Hệ Thống Đánh Giá & Thi Trắc Nghiệm Trực Tuyến 2026</p>
+                <h2 class="text-2xl font-extrabold font-heading text-white">Đăng Nhập Dự Thi</h2>
+                <p class="text-indigo-200 text-xs mt-1 font-medium">Hệ Thống Đánh Giá & Thi Trắc Nghiệm Trực Tuyến 2026</p>
             </div>
             <form id="formLogin" onsubmit="handleLogin(event)" class="p-6 space-y-4">
                 <div>

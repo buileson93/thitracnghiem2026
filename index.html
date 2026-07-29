@@ -2117,9 +2117,7 @@
                     renderAdminQuestionsList();
                 }, (err) => {
                     console.error("Lỗi Firestore Questions:", err);
-                    if (activeQuestionsPool.length === 0) {
-                        activeQuestionsPool = EMBEDDED_QUESTIONS;
-                    }
+                    showStatus("Lỗi kết nối Firebase Firestore: " + err.message, "error");
                     renderAdminQuestionsList();
                 });
             } catch (e) {
@@ -3055,12 +3053,9 @@
             if (quizQuestionsPool.length < 20 && activeQuestionsPool.length >= 20) {
                 quizQuestionsPool = activeQuestionsPool;
             }
-            if (quizQuestionsPool.length < 20) {
-                quizQuestionsPool = EMBEDDED_QUESTIONS;
-            }
 
             if (quizQuestionsPool.length < 20) {
-                showStatus(`Ngân hàng đề của cuộc thi này hiện mới có ${quizQuestionsPool.length} câu (cần tối thiểu 20 câu). Vui lòng nhắn Admin chọn cuộc thi này và nhập thêm câu hỏi!`, "error");
+                showStatus(`Ngân hàng câu hỏi trực tiếp từ Firebase Firestore hiện mới có ${quizQuestionsPool.length} câu (cần tối thiểu 20 câu). Vui lòng nhắn Admin chọn cuộc thi này và nạp thêm câu hỏi lên Firebase Database!`, "error");
                 return;
             }
 
@@ -3075,9 +3070,6 @@
             let quizQuestionsPool = activeQuestionsPool.filter(q => q.quizId === userData.quizId);
             if (quizQuestionsPool.length < 20 && activeQuestionsPool.length >= 20) {
                 quizQuestionsPool = activeQuestionsPool;
-            }
-            if (quizQuestionsPool.length < 20) {
-                quizQuestionsPool = EMBEDDED_QUESTIONS;
             }
             const shuffled = [...quizQuestionsPool].sort(() => 0.5 - Math.random());
             currentQuizQuestions = shuffled.slice(0, 20);

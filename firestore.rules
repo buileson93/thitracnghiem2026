@@ -1,0 +1,31 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Quy tắc bảo mật cho bộ sưu tập Cuộc thi (quizzes)
+    match /artifacts/{appId}/public/data/quizzes/{quizId} {
+      allow read: if true;
+      allow write: if request.resource.data.keys().hasAll(['title', 'startTime', 'endTime']);
+    }
+
+    // Quy tắc bảo mật cho Ngân hàng câu hỏi (questions)
+    match /artifacts/{appId}/public/data/questions/{questionId} {
+      allow read: if true;
+      allow create, update: if request.resource.data.keys().hasAll(['quizId', 'question', 'options', 'correctIndex']);
+      allow delete: if true;
+    }
+
+    // Quy tắc bảo mật cho Bài thi đã nộp (submissions)
+    match /artifacts/{appId}/public/data/submissions/{submissionId} {
+      allow read: if true;
+      allow create: if request.resource.data.keys().hasAll(['quizId', 'name', 'cccd', 'unit', 'score']);
+      allow update, delete: if false; // Không cho phép sửa hoặc xóa bài thi đã nộp
+    }
+
+    // Quy tắc bảo mật cho Danh sách Đơn vị (units)
+    match /artifacts/{appId}/public/data/units/{unitId} {
+      allow read: if true;
+      allow write: if request.resource.data.name is string;
+    }
+  }
+}

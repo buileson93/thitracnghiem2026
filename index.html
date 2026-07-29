@@ -611,122 +611,109 @@
             try {
                 await signInAnonymously(auth);
             } catch (err) {
-                showStatus("Lỗi kết nối Firebase Auth: " + err.message, "error");
+                console.warn("Firebase Auth Notice:", err.message);
             }
         }
 
         onAuthStateChanged(auth, (user) => {
             currentUser = user;
-            if (user) {
-                showStatus("Kết nối Firebase Firestore thành công!", "success");
-                listenToQuizzes();
-                listenToQuestions();
-                listenToUnits();
-                listenToLeaderboard();
-            }
+            showStatus("Kết nối Firebase Firestore thành công!", "success");
         });
 
-        initAuth();
-
-        // XÁC THỰC ADMIN
-        window.openAdminAuthModal = function() {
-            if (isAdminAuthenticated) {
-                switchView('admin');
-            } else {
-                document.getElementById('inputAdminPassword').value = '';
-                document.getElementById('adminAuthError').classList.add('hidden');
-                document.getElementById('modalAdminAuth').classList.remove('hidden');
-            }
-        };
-
-        window.closeAdminAuthModal = function() {
-            document.getElementById('modalAdminAuth').classList.add('hidden');
-        };
-
-        window.handleAdminLogin = function(e) {
-            e.preventDefault();
-            const pass = document.getElementById('inputAdminPassword').value.trim();
-            if (pass === ADMIN_PASSWORD || pass === "123" || pass === "admin") {
-                isAdminAuthenticated = true;
-                closeAdminAuthModal();
-                switchView('admin');
-                showStatus("Xác thực quyền Quản trị viên thành công!", "success");
-            } else {
-                const errEl = document.getElementById('adminAuthError');
-                errEl.textContent = "Mật khẩu không đúng! Vui lòng thử lại.";
-                errEl.classList.remove('hidden');
-            }
-        };
-
-        window.logoutAdmin = function() {
-            isAdminAuthenticated = false;
-            switchView('login');
-            showStatus("Đã đăng xuất khỏi tài khoản Admin.", "success");
-        };
-
-        // LẮNG NGHE REALTIME DATA
+        // LẮNG NGHE REALTIME DATA (Không phụ thuộc Auth để đọc dữ liệu)
         function listenToQuizzes() {
-            if (!currentUser) return;
-            const qzRef = collection(db, 'artifacts', appId, 'public', 'data', 'quizzes');
-            onSnapshot(qzRef, (snapshot) => {
-                activeQuizzesList = snapshot.docs.map(doc => ({
-                    firestoreId: doc.id,
-                    ...doc.data()
-                }));
+            try {
+                const qzRef = collection(db, 'artifacts', appId, 'public', 'data', 'quizzes');
+                onSnapshot(qzRef, (snapshot) => {
+                    activeQuizzesList = snapshot.docs.map(doc => ({
+                        firestoreId: doc.id,
+                        ...doc.data()
+                    }));
 
-                if (activeQuizzesList.length === 0) {
-                    seedDefaultQuiz();
-                } else {
-                    updateQuizDropdowns();
-                    renderAdminQuizzesList();
-                }
-            });
+                    if (activeQuizzesList.length === 0) {
+                        seedDefaultQuiz();
+                    } else {
+                        updateQuizDropdowns();
+                        renderAdminQuizzesList();
+                    }
+                }, (err) => {
+                    console.error("Lỗi Firestore Quizzes:", err);
+                });
+            } catch (e) {
+                console.error("Lỗi khởi tạo Quizzes listener:", e);
+            }
         }
 
         function listenToQuestions() {
-            if (!currentUser) return;
-            const qRef = collection(db, 'artifacts', appId, 'public', 'data', 'questions');
-            onSnapshot(qRef, (snapshot) => {
-                activeQuestionsPool = snapshot.docs.map(doc => ({
-                    firestoreId: doc.id,
-                    ...doc.data()
-                }));
+            try {
+                const qRef = collection(db, 'artifacts', appId, 'public', 'data', 'questions');
+                onSnapshot(qRef, (snapshot) => {
+                    activeQuestionsPool = snapshot.docs.map(doc => ({
+                        firestoreId: doc.id,
+                        ...doc.data()
+                    }));
 
-                document.getElementById('countQuestionsBadge').textContent = activeQuestionsPool.length;
-                document.getElementById('countQuestionsList').textContent = activeQuestionsPool.length;
-                renderAdminQuestionsList();
-            });
+                    const badge = document.getElementById('countQuestionsBadge');
+                    const list = document.getElementById('countQuestionsList');
+                    if (badge) badge.textContent = activeQuestionsPool.length;
+                    if (list) list.textContent = activeQuestionsPool.length;
+                    renderAdminQuestionsList();
+                }, (err) => {
+                    console.error("Lỗi Firestore Questions:", err);
+                });
+            } catch (e) {
+                console.error("Lỗi khởi tạo Questions listener:", e);
+            }
         }
 
         function listenToUnits() {
-            if (!currentUser) return;
-            const uRef = collection(db, 'artifacts', appId, 'public', 'data', 'units');
-            onSnapshot(uRef, (snapshot) => {
-                activeUnitsList = snapshot.docs.map(doc => ({
-                    firestoreId: doc.id,
-                    ...doc.data()
-                }));
+            try {
+                const uRef = collection(db, 'artifacts', appId, 'public', 'data', 'units');
+                onSnapshot(uRef, (snapshot) => {
+                    activeUnitsList = snapshot.docs.map(doc => ({
+                        firestoreId: doc.id,
+                        ...doc.data()
+                    }));
 
-                if (activeUnitsList.length === 0) {
+                    if (activeUnitsList.length === 0) {
+                        seedDefaultUnits();
+                    } else {
+                        updateUnitDropdowns();
+                        renderAdminUnitsList();
+                    }
+                }, (err) => {
+                    console.error("Lỗi Firestore Units:", err);
                     seedDefaultUnits();
-                } else {
-                    updateUnitDropdowns();
-                    renderAdminUnitsList();
-                }
-            });
+                });
+            } catch (e) {
+                seedDefaultUnits();
+            }
         }
 
         function listenToLeaderboard() {
-            if (!currentUser) return;
-            const subRef = collection(db, 'artifacts', appId, 'public', 'data', 'submissions');
-            onSnapshot(subRef, (snapshot) => {
-                rawSubmissions = snapshot.docs.map(doc => ({
-                    id: doc.id,
-                    ...doc.data()
-                }));
-                renderLeaderboardTable();
-            });
+            try {
+                const subRef = collection(db, 'artifacts', appId, 'public', 'data', 'submissions');
+                onSnapshot(subRef, (snapshot) => {
+                    rawSubmissions = snapshot.docs.map(doc => ({
+                        id: doc.id,
+                        ...doc.data()
+                    }));
+                    renderLeaderboardTable();
+                }, (err) => {
+                    console.error("Lỗi Firestore Submissions:", err);
+                });
+            } catch (e) {
+                console.error("Lỗi khởi tạo Leaderboard listener:", e);
+            }
         }
+
+        // Tự động chạy ngay các listener dữ liệu khi trang vừa mở
+        seedDefaultUnits();
+        listenToQuizzes();
+        listenToQuestions();
+        listenToUnits();
+        listenToLeaderboard();
+        initAuth();
 
         // 3. ĐIỀU HƯỚNG MÀN HÌNH
         window.switchView = function(viewName) {

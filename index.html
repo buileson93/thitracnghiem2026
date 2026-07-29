@@ -138,12 +138,15 @@
 
                     <form id="formLogin" onsubmit="handleLogin(event)" class="space-y-4">
                         <div>
-                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1 flex items-center">
-                                <i class="fas fa-bullhorn text-indigo-600 mr-1.5"></i> Cuộc Thi / Đợt Thi <span class="text-red-500 ml-1">*</span>
+                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2 flex items-center justify-between">
+                                <span><i class="fas fa-bullhorn text-indigo-600 mr-1.5"></i> Chọn Cuộc Thi Tham Gia <span class="text-red-500 ml-1">*</span></span>
+                                <span class="text-[10px] text-slate-400 font-normal">Click chọn 1 cuộc thi bên dưới</span>
                             </label>
-                            <select id="selectQuiz" onchange="onQuizSelectChange()" required class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-600 outline-none transition bg-slate-50 font-bold text-slate-800 text-xs md:text-sm">
-                                <option value="j814OsorghaODen4HRZr">Cuộc Thi Tiết Kiệm 2026 (Nghị định 265/2026/NĐ-CP) [Đang diễn ra]</option>
-                            </select>
+                            <!-- Hidden Select input for compatibility -->
+                            <input type="hidden" id="selectQuiz" required value="j814OsorghaODen4HRZr">
+                            
+                            <!-- Interactive Card Selection Container -->
+                            <div id="quizCardsContainer" class="space-y-3 max-h-60 overflow-y-auto pr-1"></div>
                         </div>
 
                         <div id="quizTimeBanner" class="hidden p-3 rounded-xl border text-xs space-y-1">
@@ -828,9 +831,39 @@
         };
 
         const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-quiz-app';
-
         let app = null, auth = null, db = null;
-        let initializeApp, getAuth, signInAnonymously, onAuthStateChanged, getFirestore, collection, addDoc, deleteDoc, doc, updateDoc, getDocs, onSnapshot, serverTimestamp;
+        let isAdminAuthenticated = false;
+
+        function switchView(viewName) {
+            window.switchView = switchView;
+            const vLog = document.getElementById('viewLogin');
+            const vQz = document.getElementById('viewQuiz');
+            const vRes = document.getElementById('viewResult');
+            const vLdb = document.getElementById('viewLeaderboard');
+            const vAdm = document.getElementById('viewAdmin');
+
+            if (vLog) vLog.classList.add('hidden');
+            if (vQz) vQz.classList.add('hidden');
+            if (vRes) vRes.classList.add('hidden');
+            if (vLdb) vLdb.classList.add('hidden');
+            if (vAdm) vAdm.classList.add('hidden');
+
+            if (viewName === 'login' && vLog) vLog.classList.remove('hidden');
+            if (viewName === 'quiz' && vQz) vQz.classList.remove('hidden');
+            if (viewName === 'result' && vRes) vRes.classList.remove('hidden');
+            if (viewName === 'leaderboard' && vLdb) {
+                vLdb.classList.remove('hidden');
+                if (typeof renderLeaderboardTable === 'function') renderLeaderboardTable();
+            }
+            if (viewName === 'admin' && vAdm) {
+                if (!isAdminAuthenticated) {
+                    if (typeof openAdminAuthModal === 'function') openAdminAuthModal();
+                    return;
+                }
+                vAdm.classList.remove('hidden');
+            }
+        }
+        window.switchView = switchView;
 
         async function initFirebaseSDK() {
             window.initFirebaseSDK = initFirebaseSDK;
@@ -866,7 +899,6 @@
 
         // Mật khẩu Admin mặc định
         const ADMIN_PASSWORD = "admin123";
-        let isAdminAuthenticated = false;
 
         // Biến trạng thái
         let currentUser = null;
@@ -2296,15 +2328,42 @@
         let activeUnitsList = [];
         let currentQuizQuestions = [];
         let userAnswers = {};
+        let flaggedQuestions = {};
         let timerInterval = null;
         let timeElapsedSeconds = 0;
         let rawSubmissions = [];
         let pendingExcelQuestions = []; // Danh sách câu hỏi chờ xác nhận lưu
 
-        // CHỐNG GIAN LẬN & ĐỒNG BỘ THỜI GIAN MẠNG
-        let networkTimeOffset = 0; // Độ lệch giữa giờ máy chủ mạng và giờ máy tính local
-        let isExamSecurityActive = false; // Trạng thái bảo vệ phòng thi
-        let examTabSwitchCount = 0; // Số lần vi phạm chuyển tab
+        // 3. ĐIỀU HƯỚNG MÀN HÌNH
+        function switchView(viewName) {
+            window.switchView = switchView;
+            const vLog = document.getElementById('viewLogin');
+            const vQz = document.getElementById('viewQuiz');
+            const vRes = document.getElementById('viewResult');
+            const vLdb = document.getElementById('viewLeaderboard');
+            const vAdm = document.getElementById('viewAdmin');
+
+            if (vLog) vLog.classList.add('hidden');
+            if (vQz) vQz.classList.add('hidden');
+            if (vRes) vRes.classList.add('hidden');
+            if (vLdb) vLdb.classList.add('hidden');
+            if (vAdm) vAdm.classList.add('hidden');
+
+            if (viewName === 'login' && vLog) vLog.classList.remove('hidden');
+            if (viewName === 'quiz' && vQz) vQz.classList.remove('hidden');
+            if (viewName === 'result' && vRes) vRes.classList.remove('hidden');
+            if (viewName === 'leaderboard' && vLdb) {
+                vLdb.classList.remove('hidden');
+                renderLeaderboardTable();
+            }
+            if (viewName === 'admin' && vAdm) {
+                if (!isAdminAuthenticated) {
+                    openAdminAuthModal();
+                    return;
+                }
+                vAdm.classList.remove('hidden');
+            }
+        }
 
         const defaultUnits = [
             "Phòng Hành chính - Nhân sự",
@@ -2765,8 +2824,54 @@
                 return `<option value="${q.firestoreId}">${q.title} [${timeStatus.text}]</option>`;
             }).join('');
 
-            selectQuiz.innerHTML = `<option value="">-- Chọn cuộc thi tham gia --</option>` + quizOptions;
-            filterQuiz.innerHTML = `<option value="ALL">-- Tất cả cuộc thi --</option>` + activeQuizzesList.map(q => `<option value="${q.firestoreId}">${q.title}</option>`).join('');
+            // Render Interactive Quiz Cards Container
+            const cardsContainer = document.getElementById('quizCardsContainer');
+            const hiddenSelect = document.getElementById('selectQuiz');
+
+            if (cardsContainer) {
+                if (activeQuizzesList.length === 0) {
+                    cardsContainer.innerHTML = `<p class="text-xs text-slate-400 italic p-3 bg-slate-50 rounded-xl border">Hiện chưa có cuộc thi nào active.</p>`;
+                } else {
+                    const currentSelectedId = hiddenSelect.value || activeQuizzesList[0].firestoreId;
+                    hiddenSelect.value = currentSelectedId;
+
+                    cardsContainer.innerHTML = activeQuizzesList.map(q => {
+                        const timeStatus = checkQuizTimeStatus(q);
+                        const isSelected = q.firestoreId === currentSelectedId;
+                        const statusBadgeClass = timeStatus.status === 'ONGOING'
+                            ? 'bg-emerald-100 text-emerald-700 border-emerald-300'
+                            : timeStatus.status === 'NOT_STARTED'
+                            ? 'bg-amber-100 text-amber-700 border-amber-300'
+                            : 'bg-slate-100 text-slate-600 border-slate-300';
+
+                        return `
+                            <div onclick="selectQuizCard('${q.firestoreId}')" id="quiz-card-${q.firestoreId}" class="quiz-card group p-3.5 rounded-2xl border-2 ${isSelected ? 'border-indigo-600 bg-indigo-50/60 ring-2 ring-indigo-500/20' : 'border-slate-200 bg-white hover:border-indigo-300 hover:bg-slate-50'} cursor-pointer transition-all shadow-sm">
+                                <div class="flex justify-between items-start gap-2 mb-1.5">
+                                    <div class="flex items-start space-x-2.5 flex-1 min-w-0">
+                                        <div class="radio-check w-4 h-4 rounded-full border-2 ${isSelected ? 'border-indigo-600 bg-indigo-600' : 'border-slate-400 group-hover:border-indigo-600'} flex items-center justify-center shrink-0 mt-0.5 transition">
+                                            <div class="w-1.5 h-1.5 rounded-full bg-white ${isSelected ? 'block' : 'hidden'}"></div>
+                                        </div>
+                                        <div class="min-w-0 flex-1">
+                                            <h4 class="font-extrabold text-xs md:text-sm text-slate-800 leading-snug break-words group-hover:text-indigo-700 transition font-heading">${q.title}</h4>
+                                            ${q.description ? `<p class="text-[11px] text-slate-500 mt-0.5 line-clamp-2 leading-normal">${q.description}</p>` : ''}
+                                        </div>
+                                    </div>
+                                    <span class="px-2 py-0.5 rounded-full text-[10px] font-bold border shrink-0 ${statusBadgeClass}">
+                                        ${timeStatus.text}
+                                    </span>
+                                </div>
+                                <div class="flex items-center space-x-3 text-[10px] text-slate-500 font-medium pl-6 pt-1 border-t border-slate-100/80 mt-1.5">
+                                    <span><i class="far fa-clock text-indigo-500 mr-1"></i>${formatDateTimeDisplay(q.startTime)} - ${formatDateTimeDisplay(q.endTime)}</span>
+                                </div>
+                            </div>
+                        `;
+                    }).join('');
+                }
+            }
+
+            if (filterQuiz) {
+                filterQuiz.innerHTML = `<option value="ALL">-- Tất cả cuộc thi --</option>` + activeQuizzesList.map(q => `<option value="${q.firestoreId}">${q.title}</option>`).join('');
+            }
             
             if (adminQuestionQuizSelect) {
                 const currentVal = adminQuestionQuizSelect.value;
@@ -2780,13 +2885,44 @@
                     adminQuestionQuizSelect.value = activeQuizzesList[0].firestoreId;
                 }
             }
-
-            if (activeQuizzesList.length > 0 && !selectQuiz.value) {
-                selectQuiz.value = activeQuizzesList[0].firestoreId;
-                onQuizSelectChange();
-            }
             
             renderAdminQuestionsList();
+        }
+
+        
+        function selectQuizCard(quizId) {
+            window.selectQuizCard = selectQuizCard;
+            const hiddenInput = document.getElementById('selectQuiz');
+            if (hiddenInput) {
+                hiddenInput.value = quizId;
+            }
+            // Update UI card styles
+            document.querySelectorAll('.quiz-card').forEach(card => {
+                card.classList.remove('border-indigo-600', 'bg-indigo-50/60', 'ring-2', 'ring-indigo-500/20');
+                card.classList.add('border-slate-200', 'bg-white');
+                const radio = card.querySelector('.radio-check');
+                if (radio) {
+                    radio.classList.remove('border-indigo-600', 'bg-indigo-600');
+                    radio.classList.add('border-slate-400');
+                    const dot = radio.querySelector('div');
+                    if (dot) dot.classList.add('hidden');
+                }
+            });
+
+            const selectedCard = document.getElementById(`quiz-card-${quizId}`);
+            if (selectedCard) {
+                selectedCard.classList.remove('border-slate-200', 'bg-white');
+                selectedCard.classList.add('border-indigo-600', 'bg-indigo-50/60', 'ring-2', 'ring-indigo-500/20');
+                const radio = selectedCard.querySelector('.radio-check');
+                if (radio) {
+                    radio.classList.remove('border-slate-400');
+                    radio.classList.add('border-indigo-600', 'bg-indigo-600');
+                    const dot = radio.querySelector('div');
+                    if (dot) dot.classList.remove('hidden');
+                }
+            }
+
+            onQuizSelectChange();
         }
 
         function onQuizSelectChange() {
@@ -3666,8 +3802,6 @@
             }
         }
 
-
-        let flaggedQuestions = {};
 
         function toggleFlagQuestion(qIdx) {
             window.toggleFlagQuestion = toggleFlagQuestion;

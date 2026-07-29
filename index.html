@@ -81,103 +81,181 @@
         <!-- Thông báo Trạng thái Firebase -->
         <div id="statusAlert" class="hidden mb-4 p-4 rounded-xl text-sm font-medium transition-all shadow-sm"></div>
 
-        <!-- MÀN HÌNH 1: ĐĂNG NHẬP THÍ SINH -->
-        <section id="viewLogin" class="max-w-md mx-auto bg-white rounded-2xl shadow-2xl border border-slate-200/80 overflow-hidden">
-            <div class="bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 p-6 text-white text-center relative border-b border-indigo-900/40">
-                <div class="flex justify-center mb-3">
-                    <div class="bg-white p-2.5 rounded-2xl shadow-xl border border-slate-100 hover:scale-[1.02] transition">
-                        <img src="vatm-mirats-full-hover.svg" alt="VATM MIRATS Logo" class="h-12 md:h-14 w-auto object-contain">
+        <!-- MÀN HÌNH 1: ĐĂNG NHẬP THÍ SINH (CARD GRID LAYOUT) -->
+        <section id="viewLogin" class="max-w-4xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 bg-white rounded-3xl shadow-2xl border border-slate-200/90 overflow-hidden">
+                
+                <!-- Left Banner Card (Desktop 5 Cols / Mobile 12 Cols) -->
+                <div class="lg:col-span-5 bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 p-8 text-white flex flex-col justify-between relative overflow-hidden">
+                    <div class="relative z-10 space-y-6">
+                        <div class="bg-white p-3 rounded-2xl shadow-xl inline-block border border-slate-100">
+                            <img src="vatm-mirats-full-hover.svg" alt="VATM MIRATS Logo" class="h-12 w-auto object-contain">
+                        </div>
+
+                        <div>
+                            <span class="inline-block px-3 py-1 bg-amber-400/20 text-amber-300 rounded-full text-[11px] font-bold tracking-wider uppercase mb-2 border border-amber-400/30">CỔNG THI CHÍNH THỨC</span>
+                            <h2 class="text-2xl lg:text-3xl font-extrabold font-heading text-white leading-tight">Hệ Thống Thi Trắc Nghiệm</h2>
+                            <p class="text-indigo-200 text-xs mt-2 leading-relaxed">Đánh giá năng lực chuyên môn & quy định tiết kiệm 2026. Công ty Quản lý bay miền Trung (VATM/MIRATS).</p>
+                        </div>
+
+                        <div class="space-y-3 pt-2">
+                            <div class="flex items-center space-x-3 bg-white/5 backdrop-blur-sm p-3 rounded-2xl border border-white/10">
+                                <div class="w-9 h-9 rounded-xl bg-indigo-600/60 flex items-center justify-center text-amber-300 text-base shrink-0"><i class="fas fa-list-check"></i></div>
+                                <div>
+                                    <h4 class="text-xs font-bold text-white">20 Câu Hỏi Đề Thi</h4>
+                                    <p class="text-[11px] text-slate-300">Trích xuất ngẫu nhiên từ ngân hàng câu hỏi</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-3 bg-white/5 backdrop-blur-sm p-3 rounded-2xl border border-white/10">
+                                <div class="w-9 h-9 rounded-xl bg-amber-500/60 flex items-center justify-center text-amber-200 text-base shrink-0"><i class="fas fa-stopwatch"></i></div>
+                                <div>
+                                    <h4 class="text-xs font-bold text-white">Tính Giờ Đếm Ngược</h4>
+                                    <p class="text-[11px] text-slate-300">Tự động nộp bài khi hết thời gian</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-3 bg-white/5 backdrop-blur-sm p-3 rounded-2xl border border-white/10">
+                                <div class="w-9 h-9 rounded-xl bg-emerald-500/60 flex items-center justify-center text-emerald-200 text-base shrink-0"><i class="fas fa-trophy"></i></div>
+                                <div>
+                                    <h4 class="text-xs font-bold text-white">Bảng Xếp Hạng Realtime</h4>
+                                    <p class="text-[11px] text-slate-300">Xếp hạng theo Điểm số & Thời gian</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="relative z-10 pt-6 text-[10px] text-slate-400 border-t border-white/10 flex justify-between items-center">
+                        <span>© 2026 VATM / MIRATS</span>
+                        <span class="text-emerald-400 font-bold flex items-center"><span class="w-2 h-2 rounded-full bg-emerald-400 mr-1.5 animate-pulse"></span>Hệ thống sẵn sàng</span>
                     </div>
                 </div>
-                <h2 class="text-2xl font-extrabold font-heading text-white">Đăng Nhập Dự Thi</h2>
-                <p class="text-indigo-200 text-xs mt-1 font-medium">Hệ Thống Đánh Giá & Thi Trắc Nghiệm Trực Tuyến 2026</p>
+
+                <!-- Right Form Card (Desktop 7 Cols / Mobile 12 Cols) -->
+                <div class="lg:col-span-7 p-6 lg:p-8 flex flex-col justify-center">
+                    <div class="mb-6">
+                        <h3 class="text-xl font-bold text-slate-900 font-heading">Thông Tin Thí Sinh</h3>
+                        <p class="text-slate-500 text-xs mt-0.5">Vui lòng chọn đợt thi và nhập thông tin để vào phòng thi</p>
+                    </div>
+
+                    <form id="formLogin" onsubmit="handleLogin(event)" class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1 flex items-center">
+                                <i class="fas fa-bullhorn text-indigo-600 mr-1.5"></i> Cuộc Thi / Đợt Thi <span class="text-red-500 ml-1">*</span>
+                            </label>
+                            <select id="selectQuiz" onchange="onQuizSelectChange()" required class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-600 outline-none transition bg-slate-50 font-bold text-slate-800 text-xs md:text-sm">
+                                <option value="j814OsorghaODen4HRZr">Cuộc Thi Tiết Kiệm 2026 (Nghị định 265/2026/NĐ-CP) [Đang diễn ra]</option>
+                            </select>
+                        </div>
+
+                        <div id="quizTimeBanner" class="hidden p-3 rounded-xl border text-xs space-y-1">
+                            <div id="quizTimeBannerTitle" class="font-bold"></div>
+                            <div id="quizTimeBannerRange" class="text-slate-600"></div>
+                            <div id="quizTimeBannerStatus" class="font-semibold"></div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1 flex items-center">
+                                <i class="fas fa-user text-indigo-600 mr-1.5"></i> Họ và Tên <span class="text-red-500 ml-1">*</span>
+                            </label>
+                            <input type="text" id="inputName" required placeholder="Ví dụ: Nguyễn Văn An" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-600 outline-none transition text-xs md:text-sm font-medium">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1 flex items-center">
+                                <i class="fas fa-id-card text-indigo-600 mr-1.5"></i> Số CCCD / Định danh <span class="text-red-500 ml-1">*</span>
+                            </label>
+                            <input type="text" id="inputCccd" required pattern="[0-9]{9,12}" placeholder="Nhập 9-12 số CCCD" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-600 outline-none transition text-xs md:text-sm font-mono">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1 flex items-center">
+                                <i class="fas fa-building text-indigo-600 mr-1.5"></i> Đơn vị / Phòng / Ban <span class="text-red-500 ml-1">*</span>
+                            </label>
+                            <select id="selectUnit" required class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-600 outline-none transition bg-white text-xs md:text-sm font-medium">
+                                <option value="">-- Chọn Đơn Vị / Phòng / Ban --</option>
+                                <option value="Phòng Hành chính - Nhân sự">Phòng Hành chính - Nhân sự</option>
+                                <option value="Phòng Kế toán - Tài chính">Phòng Kế toán - Tài chính</option>
+                                <option value="Phòng Kỹ thuật - Công nghệ">Phòng Kỹ thuật - Công nghệ</option>
+                                <option value="Phòng Kinh doanh - Marketing">Phòng Kinh doanh - Marketing</option>
+                                <option value="Chi nhánh 1">Chi nhánh 1</option>
+                                <option value="Chi nhánh 2">Chi nhánh 2</option>
+                                <option value="Đơn vị khác">Đơn vị khác</option>
+                            </select>
+                        </div>
+
+                        <button type="submit" id="btnStartQuiz" class="w-full bg-gradient-to-r from-indigo-600 via-indigo-700 to-violet-700 hover:from-indigo-700 hover:to-violet-800 text-white font-extrabold py-3.5 px-6 rounded-xl shadow-lg shadow-indigo-500/25 transition duration-200 flex items-center justify-center space-x-2 text-sm uppercase tracking-wider active:scale-[0.99] disabled:bg-slate-300 disabled:cursor-not-allowed">
+                            <span>Vào Phòng Thi Ngay</span>
+                            <i class="fas fa-arrow-right text-base"></i>
+                        </button>
+                    </form>
+                </div>
             </div>
-            <form id="formLogin" onsubmit="handleLogin(event)" class="p-6 space-y-4">
-                <div>
-                    <label class="block text-sm font-semibold text-slate-700 mb-1">Cuộc Thi / Đợt Thi <span class="text-red-500">*</span></label>
-                    <select id="selectQuiz" onchange="onQuizSelectChange()" required class="w-full px-4 py-2.5 rounded-lg border border-slate-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition bg-white font-medium text-slate-800">
-                        <option value="j814OsorghaODen4HRZr">Cuộc Thi Tiết Kiệm 2026 (Nghị định 265/2026/NĐ-CP) [Đang diễn ra]</option>
-                    </select>
-                </div>
-
-                <div id="quizTimeBanner" class="hidden p-3 rounded-xl border text-xs space-y-1">
-                    <div id="quizTimeBannerTitle" class="font-bold"></div>
-                    <div id="quizTimeBannerRange" class="text-slate-600"></div>
-                    <div id="quizTimeBannerStatus" class="font-semibold"></div>
-                </div>
-
-                <div>
-                    <label class="block text-sm font-semibold text-slate-700 mb-1">Họ và Tên <span class="text-red-500">*</span></label>
-                    <input type="text" id="inputName" required placeholder="Ví dụ: Nguyễn Văn An" class="w-full px-4 py-2.5 rounded-lg border border-slate-300 focus:ring-2 focus:ring-indigo-500 outline-none transition">
-                </div>
-                <div>
-                    <label class="block text-sm font-semibold text-slate-700 mb-1">Số CCCD / Định danh <span class="text-red-500">*</span></label>
-                    <input type="text" id="inputCccd" required pattern="[0-9]{9,12}" placeholder="Nhập 9-12 số CCCD" class="w-full px-4 py-2.5 rounded-lg border border-slate-300 focus:ring-2 focus:ring-indigo-500 outline-none transition">
-                </div>
-                <div>
-                    <label class="block text-sm font-semibold text-slate-700 mb-1">Đơn vị / Phòng / Ban <span class="text-red-500">*</span></label>
-                    <select id="selectUnit" required class="w-full px-4 py-2.5 rounded-lg border border-slate-300 focus:ring-2 focus:ring-indigo-500 outline-none transition bg-white">
-                        <option value="">-- Chọn Đơn Vị / Phòng / Ban --</option>
-                        <option value="Phòng Hành chính - Nhân sự">Phòng Hành chính - Nhân sự</option>
-                        <option value="Phòng Kế toán - Tài chính">Phòng Kế toán - Tài chính</option>
-                        <option value="Phòng Kỹ thuật - Công nghệ">Phòng Kỹ thuật - Công nghệ</option>
-                        <option value="Phòng Kinh doanh - Marketing">Phòng Kinh doanh - Marketing</option>
-                        <option value="Chi nhánh 1">Chi nhánh 1</option>
-                        <option value="Chi nhánh 2">Chi nhánh 2</option>
-                        <option value="Đơn vị khác">Đơn vị khác</option>
-                    </select>
-                </div>
-
-                <div class="bg-indigo-50 p-3 rounded-lg text-xs text-indigo-800 space-y-1 border border-indigo-100">
-                    <p class="font-semibold"><i class="fas fa-info-circle mr-1"></i> Quy định làm bài:</p>
-                    <p>• Trích xuất ngẫu nhiên 20 câu hỏi từ ngân hàng đề.</p>
-                    <p>• Xếp hạng ưu tiên: Số câu đúng ➔ Thời gian làm bài ngắn nhất.</p>
-                </div>
-
-                <button type="submit" id="btnStartQuiz" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 rounded-xl shadow-lg transition duration-200 flex items-center justify-center space-x-2 disabled:bg-slate-300 disabled:cursor-not-allowed">
-                    <span>Bắt Đầu Làm Bài</span>
-                    <i class="fas fa-arrow-right"></i>
-                </button>
-            </form>
         </section>
 
         <!-- MÀN HÌNH 2: LÀM BÀI THI -->
+        <!-- MÀN HÌNH 2: LÀM BÀI THI (12-COLUMN CARD LAYOUT) -->
         <section id="viewQuiz" class="hidden">
-            <div class="bg-white rounded-xl shadow-md p-4 mb-6 border border-slate-200 flex flex-wrap justify-between items-center gap-4 sticky top-16 z-30">
-                <div>
-                    <span id="quizTitleDisplay" class="font-bold text-indigo-700 block text-xs uppercase tracking-wider">---</span>
-                    <span id="userInfoDisplay" class="font-bold text-slate-800 text-base">---</span>
-                    <span id="userUnitDisplay" class="block text-xs text-slate-500">---</span>
+            <!-- Sticky Header Room -->
+            <div class="bg-white/95 backdrop-blur-md rounded-2xl shadow-xl p-4 mb-6 border border-slate-200/90 flex flex-wrap justify-between items-center gap-4 sticky top-16 z-30">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-xl bg-indigo-100 text-indigo-700 flex items-center justify-center font-bold text-lg shrink-0">
+                        <i class="fas fa-file-signature"></i>
+                    </div>
+                    <div>
+                        <span id="quizTitleDisplay" class="font-extrabold text-indigo-700 block text-xs uppercase tracking-wider font-heading">---</span>
+                        <div class="flex items-center space-x-2 mt-0.5">
+                            <span id="userInfoDisplay" class="font-bold text-slate-900 text-sm">---</span>
+                            <span class="text-slate-300">•</span>
+                            <span id="userUnitDisplay" class="text-xs font-medium text-slate-500">---</span>
+                        </div>
+                    </div>
                 </div>
                 
-                <div class="flex items-center space-x-6">
-                    <div class="text-center">
-                        <div class="text-xs text-slate-500 uppercase font-semibold">Đã hoàn thành</div>
-                        <div class="font-bold text-indigo-600 text-lg"><span id="answeredCount">0</span>/20</div>
+                <div class="flex items-center space-x-4 ml-auto">
+                    <div class="text-center px-3 py-1.5 bg-slate-50 rounded-xl border border-slate-200">
+                        <div class="text-[10px] text-slate-500 uppercase font-bold tracking-wider">Đã hoàn thành</div>
+                        <div class="font-extrabold text-indigo-700 text-base"><span id="answeredCount">0</span><span class="text-slate-400 font-normal">/20</span></div>
                     </div>
-                    <div class="text-center bg-amber-50 border border-amber-200 px-3 py-1 rounded-lg">
-                        <div class="text-xs text-amber-700 uppercase font-semibold">Thời gian</div>
-                        <div id="timerDisplay" class="font-mono font-bold text-amber-600 text-xl">00:00</div>
+                    <div class="text-center bg-gradient-to-r from-amber-500/10 to-amber-600/10 border border-amber-400/50 px-4 py-1.5 rounded-xl shadow-inner">
+                        <div class="text-[10px] text-amber-700 uppercase font-bold tracking-wider">Thời gian còn lại</div>
+                        <div id="timerDisplay" class="font-mono font-extrabold text-amber-700 text-lg md:text-xl">00:00</div>
                     </div>
-                    <button onclick="openSubmitModal()" class="bg-emerald-600 hover:bg-emerald-700 text-white font-semibold px-4 py-2 rounded-lg shadow transition">
-                        Nộp Bài <i class="fas fa-paper-plane ml-1"></i>
+                    <button onclick="openSubmitModal()" class="bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white font-extrabold px-5 py-2.5 rounded-xl shadow-lg shadow-emerald-500/20 transition transform active:scale-95 text-xs uppercase tracking-wider flex items-center">
+                        <span>Nộp Bài</span>
+                        <i class="fas fa-paper-plane ml-1.5 text-sm"></i>
                     </button>
                 </div>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
-                <div id="questionsContainer" class="lg:col-span-3 space-y-6"></div>
-                <div class="lg:col-span-1">
-                    <div class="bg-white rounded-xl shadow-md p-4 border border-slate-200 sticky top-40">
-                        <h3 class="font-bold text-slate-700 mb-3 text-sm flex items-center justify-between">
-                            <span>Danh Sách Câu Hỏi</span>
-                            <i class="fas fa-th text-indigo-500"></i>
-                        </h3>
-                        <div id="questionGrid" class="grid grid-cols-5 gap-2"></div>
-                        <div class="mt-4 pt-4 border-t border-slate-100 flex justify-around text-xs text-slate-500">
-                            <span class="flex items-center"><span class="w-3 h-3 bg-slate-200 rounded-full mr-1"></span> Chưa chọn</span>
-                            <span class="flex items-center"><span class="w-3 h-3 bg-indigo-600 rounded-full mr-1"></span> Đã chọn</span>
+            <!-- Main Quiz Area: Questions + Sidebar Navigator -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+                <!-- Left 8 Cols: Questions Stream -->
+                <div id="questionsContainer" class="lg:col-span-8 space-y-6"></div>
+
+                <!-- Right 4 Cols: Navigator Sticky Sidebar -->
+                <div class="lg:col-span-4">
+                    <div class="bg-white rounded-2xl shadow-xl p-5 border border-slate-200/90 sticky top-36 space-y-5">
+                        <div class="flex items-center justify-between pb-3 border-b border-slate-100">
+                            <h3 class="font-extrabold text-slate-800 text-sm font-heading flex items-center">
+                                <i class="fas fa-th-large text-indigo-600 mr-2 text-base"></i> Bảng Danh Sách Câu Hỏi
+                            </h3>
+                            <span class="text-[11px] font-bold text-slate-500 bg-slate-100 px-2.5 py-0.5 rounded-full">20 Câu</span>
                         </div>
+
+                        <!-- 1-20 Question Buttons Grid -->
+                        <div id="questionGrid" class="grid grid-cols-5 gap-2"></div>
+
+                        <!-- Legend Indicators -->
+                        <div class="pt-3 border-t border-slate-100 grid grid-cols-2 gap-2 text-[11px] font-medium text-slate-600">
+                            <span class="flex items-center"><span class="w-3 h-3 bg-slate-100 border border-slate-300 rounded-lg mr-1.5"></span> Chưa chọn</span>
+                            <span class="flex items-center"><span class="w-3 h-3 bg-indigo-600 rounded-lg mr-1.5"></span> Đã chọn</span>
+                            <span class="flex items-center col-span-2"><span class="w-3 h-3 bg-amber-100 border-2 border-amber-400 rounded-lg mr-1.5"></span> Đánh dấu xem lại</span>
+                        </div>
+
+                        <!-- Action Submit CTA inside sidebar -->
+                        <button onclick="openSubmitModal()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-xl shadow-md transition text-xs flex items-center justify-center space-x-1.5">
+                            <i class="fas fa-check-circle text-sm"></i>
+                            <span>Nộp Bài Thi Ngay</span>
+                        </button>
                     </div>
                 </div>
             </div>

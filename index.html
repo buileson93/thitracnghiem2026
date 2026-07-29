@@ -2446,11 +2446,17 @@
                     renderAdminQuizzesList();
                 }, (err) => {
                     console.error("Lỗi Firestore Quizzes:", err);
-                    activeQuizzesList = [DEFAULT_QUIZ];
+                    if (!activeQuizzesList || activeQuizzesList.length === 0) {
+                        activeQuizzesList = [DEFAULT_QUIZ];
+                    }
                     updateQuizDropdowns();
                 });
             } catch (e) {
                 console.error("Lỗi khởi tạo Quizzes listener:", e);
+                if (!activeQuizzesList || activeQuizzesList.length === 0) {
+                    activeQuizzesList = [DEFAULT_QUIZ];
+                }
+                updateQuizDropdowns();
             }
         }
 
@@ -2537,10 +2543,20 @@
             }
         }
 
-        // Tự động chạy ngay giao diện ban đầu từ dữ liệu nhúng
-        seedDefaultUnits();
-        updateQuizDropdowns();
-        initFirebaseSDK();
+        // Tự động chạy ngay giao diện ban đầu sau khi DOM đã tải đầy đủ
+        function initAppOnDomReady() {
+            window.initAppOnDomReady = initAppOnDomReady;
+            seedDefaultUnits();
+            updateQuizDropdowns();
+            updateUnitDropdowns();
+            initFirebaseSDK();
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initAppOnDomReady);
+        } else {
+            initAppOnDomReady();
+        }
 
         // 2. XÁC THỰC ADMIN
         function openAdminAuthModal() {

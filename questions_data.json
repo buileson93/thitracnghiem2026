@@ -1,0 +1,1052 @@
+[
+  {
+    "question": "Câu 1: Theo Nghị định 265/2026/NĐ-CP, phạm vi điều chỉnh của Nghị định bao gồm hành vi vi phạm nào?",
+    "options": [
+      "Các hành vi gây lãng phí trong sử dụng ngân sách nhà nước.",
+      "Các hành vi vi phạm trong tổ chức thực hiện pháp luật tiết kiệm, chống lãng phí.",
+      "Các hành vi vi phạm về đấu thầu và đầu tư công.",
+      "Tất cả các phương án trên."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": "Câu 2: Đối tượng nào sau đây thuộc diện bị xử phạt theo Nghị định 265/2026/NĐ-CP?",
+    "options": [
+      "Tổ chức, cá nhân có hành vi vi phạm hành chính quy định tại Nghị định.",
+      "Cơ quan nhà nước vi phạm trong chức năng quản lý nhà nước về tiết kiệm.",
+      "Chỉ áp dụng đối với công chức nhà nước.",
+      "Chỉ áp dụng đối với các doanh nghiệp có vốn nhà nước."
+    ],
+    "correctIndex": 0
+  },
+  {
+    "question": "Câu 3: Theo Nghị định 265/2026/NĐ-CP, cơ quan nhà nước bị xử phạt vi phạm hành chính khi nào?",
+    "options": [
+      "Khi thực hiện chức năng quản lý nhà nước về tiết kiệm.",
+      "Khi hành vi vi phạm đó không thuộc chức năng, nhiệm vụ quản lý nhà nước về tiết kiệm của cơ quan đó.",
+      "Cơ quan nhà nước không bao giờ bị xử phạt hành chính.",
+      "Khi có sự đồng ý của Bộ Tài chính."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": "Câu 4: Thời hiệu xử phạt vi phạm hành chính trong lĩnh vực tiết kiệm, chống lãng phí theo Nghị định 265/2026/NĐ-CP là bao lâu?",
+    "options": [
+      "06 tháng.",
+      "01 năm.",
+      "02 năm.",
+      "05 năm."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": "Câu 5: Nghị định 265/2026/NĐ-CP quy định các hình thức xử phạt chính bao gồm:",
+    "options": [
+      "Cảnh cáo và Tước quyền sử dụng giấy phép.",
+      "Cảnh cáo và Phạt tiền.",
+      "Phạt tiền và Tịch thu tang vật vi phạm.",
+      "Phạt tiền và Đình chỉ hoạt động có thời hạn."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": "Câu 6: Theo Nghị định 265/2026/NĐ-CP, mức phạt tiền đối với tổ chức có cùng hành vi vi phạm so với cá nhân được tính như thế nào?",
+    "options": [
+      "Bằng mức phạt đối với cá nhân.",
+      "Gấp 1,5 lần mức phạt đối với cá nhân.",
+      "Gấp 02 lần mức phạt đối với cá nhân.",
+      "Gấp 03 lần mức phạt đối với cá nhân."
+    ],
+    "correctIndex": 2
+  },
+  {
+    "question": "Câu 7: Biện pháp khắc phục hậu quả nào sau đây được quy định tại Nghị định 265/2026/NĐ-CP?",
+    "options": [
+      "Buộc nộp lại số lợi bất chính có được do vi phạm.",
+      "Buộc cải chính thông tin báo cáo về kết quả, số liệu tiết kiệm, chống lãng phí.",
+      "Buộc đình chỉ công tác người vi phạm.",
+      "Buộc bồi thường thiệt hại cho nhà nước."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": "Câu 8: Hành vi chậm ban hành Chương trình tiết kiệm dưới 30 ngày theo Nghị định 265/2026/NĐ-CP bị xử phạt như thế nào?",
+    "options": [
+      "Phạt tiền từ 1.000.000 đồng đến 3.000.000 đồng.",
+      "Phạt cảnh cáo.",
+      "Phạt tiền từ 5.000.000 đồng đến 10.000.000 đồng.",
+      "Không bị xử phạt."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": "Câu 9: Theo Nghị định 265/2026/NĐ-CP, hành vi ban hành Chương trình tiết kiệm không đảm bảo đầy đủ nội dung bị phạt tiền bao nhiêu?",
+    "options": [
+      "1.000.000 đồng đến 3.000.000 đồng.",
+      "3.000.000 đồng đến 5.000.000 đồng.",
+      "5.000.000 đồng đến 10.000.000 đồng.",
+      "Phạt cảnh cáo."
+    ],
+    "correctIndex": 0
+  },
+  {
+    "question": "Câu 10: Hành vi không ban hành Chương trình tiết kiệm theo Nghị định 265/2026/NĐ-CP bị phạt tiền ở mức nào?",
+    "options": [
+      "1.000.000 đồng đến 3.000.000 đồng.",
+      "3.000.000 đồng đến 5.000.000 đồng.",
+      "5.000.000 đồng đến 10.000.000 đồng.",
+      "10.000.000 đồng đến 15.000.000 đồng."
+    ],
+    "correctIndex": 2
+  },
+  {
+    "question": "Câu 11: Theo Nghị định 265/2026/NĐ-CP, tổ chức thực hiện không đúng tiến độ các nhiệm vụ tiết kiệm đã ban hành bị xử phạt hình thức nào?",
+    "options": [
+      "Phạt tiền 3.000.000 đồng.",
+      "Phạt cảnh cáo.",
+      "Phạt tiền 5.000.000 đồng.",
+      "Buộc hủy bỏ chương trình."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": "Câu 12: Hành vi không tổ chức thực hiện các giải pháp tiết kiệm đã ban hành theo Nghị định 265/2026/NĐ-CP bị phạt tiền từ:",
+    "options": [
+      "1.000.000 đồng đến 3.000.000 đồng.",
+      "3.000.000 đồng đến 5.000.000 đồng.",
+      "5.000.000 đồng đến 10.000.000 đồng.",
+      "10.000.000 đồng đến 15.000.000 đồng."
+    ],
+    "correctIndex": 2
+  },
+  {
+    "question": "Câu 13: Mức phạt tiền đối với hành vi không phân công trách nhiệm thực hiện các giải pháp tiết kiệm theo Nghị định 265/2026/NĐ-CP là:",
+    "options": [
+      "1.000.000 đồng đến 3.000.000 đồng.",
+      "3.000.000 đồng đến 5.000.000 đồng.",
+      "5.000.000 đồng đến 10.000.000 đồng.",
+      "Phạt cảnh cáo."
+    ],
+    "correctIndex": 2
+  },
+  {
+    "question": "Câu 14: Hành vi chậm báo cáo kết quả tiết kiệm dưới 15 ngày bị xử phạt thế nào theo Nghị định 265/2026/NĐ-CP?",
+    "options": [
+      "Phạt cảnh cáo.",
+      "Phạt tiền 1.000.000 đồng.",
+      "Phạt tiền 3.000.000 đồng.",
+      "Không bị phạt nếu có lý do chính đáng."
+    ],
+    "correctIndex": 0
+  },
+  {
+    "question": "Câu 15: Theo Nghị định 265/2026/NĐ-CP, chậm báo cáo kết quả tiết kiệm từ 15 đến dưới 30 ngày bị phạt tiền từ:",
+    "options": [
+      "1.000.000 đồng đến 3.000.000 đồng.",
+      "3.000.000 đồng đến 5.000.000 đồng.",
+      "5.000.000 đồng đến 10.000.000 đồng.",
+      "10.000.000 đồng đến 15.000.000 đồng."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": "Câu 16: Mức phạt tiền cao nhất đối với hành vi không báo cáo kết quả tiết kiệm theo Nghị định 265/2026/NĐ-CP là:",
+    "options": [
+      "5.000.000 đồng.",
+      "10.000.000 đồng.",
+      "15.000.000 đồng.",
+      "20.000.000 đồng."
+    ],
+    "correctIndex": 2
+  },
+  {
+    "question": "Câu 17: Theo Nghị định 265/2026/NĐ-CP, hành vi cố ý báo cáo không trung thực về số liệu tiết kiệm bị phạt tiền từ:",
+    "options": [
+      "1.000.000 đồng đến 3.000.000 đồng.",
+      "3.000.000 đồng đến 5.000.000 đồng.",
+      "5.000.000 đồng đến 10.000.000 đồng.",
+      "10.000.000 đồng đến 15.000.000 đồng."
+    ],
+    "correctIndex": 2
+  },
+  {
+    "question": "Câu 18: Việc cập nhật thông tin vào cơ sở dữ liệu quốc gia về tiết kiệm chậm dưới 15 ngày bị xử phạt gì theo Nghị định 265/2026/NĐ-CP?",
+    "options": [
+      "Phạt cảnh cáo.",
+      "Phạt tiền 1.000.000 đồng.",
+      "Phạt tiền 2.000.000 đồng.",
+      "Không bị xử phạt."
+    ],
+    "correctIndex": 0
+  },
+  {
+    "question": "Câu 19: Theo Nghị định 265/2026/NĐ-CP, hành vi không cập nhật dữ liệu vào cơ sở dữ liệu quốc gia về tiết kiệm bị phạt tiền từ:",
+    "options": [
+      "1.000.000 đồng đến 2.000.000 đồng.",
+      "2.000.000 đồng đến 5.000.000 đồng.",
+      "5.000.000 đồng đến 10.000.000 đồng.",
+      "Phạt cảnh cáo."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": "Câu 20: Hành vi cố ý cập nhật dữ liệu không chính xác vào cơ sở dữ liệu quốc gia về tiết kiệm theo Nghị định 265/2026/NĐ-CP bị phạt:",
+    "options": [
+      "1.000.000 đồng đến 3.000.000 đồng.",
+      "3.000.000 đồng đến 5.000.000 đồng.",
+      "5.000.000 đồng đến 10.000.000 đồng.",
+      "10.000.000 đồng đến 15.000.000 đồng."
+    ],
+    "correctIndex": 2
+  },
+  {
+    "question": "Câu 21: Theo Nghị định 265/2026/NĐ-CP, công khai tiết kiệm không đúng hình thức quy định bị phạt hình thức nào?",
+    "options": [
+      "Phạt tiền 1.000.000 đồng.",
+      "Phạt cảnh cáo.",
+      "Phạt tiền 3.000.000 đồng.",
+      "Buộc đình chỉ hoạt động."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": "Câu 22: Hành vi chậm công khai về tiết kiệm từ 30 ngày trở lên bị phạt tiền bao nhiêu theo Nghị định 265/2026/NĐ-CP?",
+    "options": [
+      "1.000.000 đồng đến 2.000.000 đồng.",
+      "3.000.000 đồng đến 5.000.000 đồng.",
+      "5.000.000 đồng đến 8.000.000 đồng.",
+      "8.000.000 đồng đến 10.000.000 đồng."
+    ],
+    "correctIndex": 2
+  },
+  {
+    "question": "Câu 23: Theo Nghị định 265/2026/NĐ-CP, công khai không đầy đủ nội dung phải công khai bị phạt tiền:",
+    "options": [
+      "1.000.000 đồng đến 3.000.000 đồng.",
+      "3.000.000 đồng đến 5.000.000 đồng.",
+      "5.000.000 đồng đến 7.000.000 đồng.",
+      "Phạt cảnh cáo."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": "Câu 24: Hành vi không cung cấp hồ sơ cho cơ quan kiểm tra về tiết kiệm theo Nghị định 265/2026/NĐ-CP bị phạt tiền từ:",
+    "options": [
+      "1.000.000 đồng đến 3.000.000 đồng.",
+      "4.000.000 đồng đến 6.000.000 đồng.",
+      "6.000.000 đồng đến 10.000.000 đồng.",
+      "Phạt cảnh cáo."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": "Câu 25: Theo Nghị định 265/2026/NĐ-CP, việc không bố trí người có trách nhiệm làm việc với đoàn kiểm tra bị phạt tiền:",
+    "options": [
+      "1.000.000 đồng đến 3.000.000 đồng.",
+      "4.000.000 đồng đến 6.000.000 đồng.",
+      "7.000.000 đồng đến 10.000.000 đồng.",
+      "Phạt cảnh cáo."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": "Câu 26: Theo Nghị định 265/2026/NĐ-CP, hành vi triển khai Ngày toàn dân tiết kiệm không đúng hình thức bị phạt:",
+    "options": [
+      "Phạt cảnh cáo.",
+      "Phạt tiền 1.000.000 đồng.",
+      "Phạt tiền 3.000.000 đồng.",
+      "Buộc hủy bỏ kết quả."
+    ],
+    "correctIndex": 0
+  },
+  {
+    "question": "Câu 27: Mức phạt tiền đối với hành vi không triển khai Ngày toàn dân tiết kiệm theo quy định tại Nghị định 265/2026/NĐ-CP là:",
+    "options": [
+      "1.000.000 đồng đến 3.000.000 đồng.",
+      "3.000.000 đồng đến 5.000.000 đồng.",
+      "5.000.000 đồng đến 10.000.000 đồng.",
+      "Phạt cảnh cáo."
+    ],
+    "correctIndex": 2
+  },
+  {
+    "question": "Câu 28: Theo Nghị định 265/2026/NĐ-CP, Chủ tịch Ủy ban nhân dân cấp tỉnh có quyền phạt tiền đến:",
+    "options": [
+      "5.000.000 đồng.",
+      "10.000.000 đồng.",
+      "15.000.000 đồng.",
+      "20.000.000 đồng."
+    ],
+    "correctIndex": 2
+  },
+  {
+    "question": "Câu 29: Thanh tra viên các bộ theo Nghị định 265/2026/NĐ-CP có quyền phạt tiền đến:",
+    "options": [
+      "5.000.000 đồng.",
+      "10.000.000 đồng.",
+      "15.000.000 đồng.",
+      "20.000.000 đồng."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": "Câu 30: Chánh Thanh tra các bộ theo Nghị định 265/2026/NĐ-CP có thẩm quyền phạt tiền đến:",
+    "options": [
+      "10.000.000 đồng.",
+      "15.000.000 đồng.",
+      "20.000.000 đồng.",
+      "30.000.000 đồng."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": "Câu 31: Trưởng đoàn kiểm tra do Bộ trưởng Bộ Tài chính thành lập có quyền phạt tiền tối đa bao nhiêu theo Nghị định 265/2026/NĐ-CP?",
+    "options": [
+      "10.000.000 đồng.",
+      "15.000.000 đồng.",
+      "20.000.000 đồng.",
+      "Phạt cảnh cáo duy nhất."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": "Câu 32: Thủ trưởng tổ chức thuộc bộ được giao chức năng kiểm tra theo Nghị định 265/2026/NĐ-CP có thẩm quyền phạt tiền đến:",
+    "options": [
+      "5.000.000 đồng.",
+      "10.000.000 đồng.",
+      "15.000.000 đồng.",
+      "20.000.000 đồng."
+    ],
+    "correctIndex": 2
+  },
+  {
+    "question": "Câu 33: Nghị định 265/2026/NĐ-CP chính thức có hiệu lực thi hành kể từ ngày nào?",
+    "options": [
+      "Ngày 01 tháng 01 năm 2026.",
+      "Ngày 01 tháng 07 năm 2026.",
+      "Ngày 03 tháng 07 năm 2026.",
+      "Ngày 15 tháng 07 năm 2026."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": "Câu 34: Theo Nghị định 265/2026/NĐ-CP, đối với hành vi vi phạm xảy ra trước khi Nghị định có hiệu lực nhưng đang được xem xét giải quyết thì áp dụng quy định nào?",
+    "options": [
+      "Luôn áp dụng Nghị định mới.",
+      "Luôn áp dụng Nghị định cũ.",
+      "Áp dụng quy định của Chính phủ có hiệu lực tại thời điểm thực hiện hành vi vi phạm để xử lý.",
+      "Không xử phạt."
+    ],
+    "correctIndex": 2
+  },
+  {
+    "question": "Câu 35: Cơ quan nào có trách nhiệm hướng dẫn, kiểm tra và tổ chức thực hiện Nghị định 265/2026/NĐ-CP?",
+    "options": [
+      "Bộ Nội vụ.",
+      "Bộ Tài chính.",
+      "Bộ Tư pháp.",
+      "Ủy ban Kiểm tra Trung ương."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": "Câu 1: Theo Nghị định 266/2026/NĐ-CP, đối tượng nào sau đây thuộc phạm vi áp dụng?",
+    "options": [
+      "Chỉ các cơ quan nhà nước và đơn vị lực lượng vũ trang.",
+      "Tổ chức chính trị, cơ quan nhà nước, doanh nghiệp nhà nước và các cá nhân liên quan.",
+      "Chỉ các doanh nghiệp có vốn đầu tư nước ngoài.",
+      "Chỉ các hộ gia đình có mức tiêu dùng điện cao."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": "Câu 2: Việc xác định hành vi gây lãng phí theo Nghị định 266/2026/NĐ-CP phải được thể hiện trong văn bản nào?",
+    "options": [
+      "Biên bản họp nội bộ của cơ quan.",
+      "Kết luận của cơ quan nhà nước có thẩm quyền thông qua thanh tra, kiểm tra, kiểm toán....",
+      "Đơn tố cáo của công dân.",
+      "Thông cáo báo chí của đơn vị."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": "Câu 3: Hành vi nào sau đây được coi là gây lãng phí trong tổ chức bộ máy theo Nghị định 266/2026/NĐ-CP?",
+    "options": [
+      "Tuyển dụng đúng chỉ tiêu biên chế được giao.",
+      "Bố trí số lượng cấp phó vượt mức quy định của pháp luật.",
+      "Thực hiện tinh giản biên chế định kỳ.",
+      "Luân chuyển cán bộ theo kế hoạch đã phê duyệt."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": "Câu 4: Theo Nghị định 266/2026/NĐ-CP, hành vi nào trong đầu tư xây dựng bị xác định là gây lãng phí?",
+    "options": [
+      "Hoàn thành dự án sớm hơn tiến độ 01 tháng.",
+      "Cố ý đầu tư không đúng quy định dẫn đến kéo dài thời gian, tiến độ dự án.",
+      "Sử dụng nguyên vật liệu trong nước để tiết kiệm chi phí.",
+      "Thực hiện đấu thầu qua mạng theo quy định."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": "Câu 5: Trong quản lý tài sản công, hậu quả nào sau đây xác định hành vi là gây lãng phí theo Nghị định 266/2026/NĐ-CP?",
+    "options": [
+      "Tài sản được đưa vào sử dụng ngay sau khi mua sắm.",
+      "Tài sản công là trụ sở làm việc không được đưa vào sử dụng liên tục quá 12 tháng.",
+      "Tài sản được bảo trì định kỳ theo đúng tiêu chuẩn kỹ thuật.",
+      "Tài sản được thanh lý đúng quy trình khi hết hạn sử dụng."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": "Câu 6: Nghị định 266/2026/NĐ-CP xác định hành vi gây lãng phí trong quản lý tài nguyên khi xảy ra hậu quả nào?",
+    "options": [
+      "Khai thác tài nguyên nằm trong hạn ngạch cho phép.",
+      "Làm giảm thu ngân sách nhà nước từ việc khai thác, sử dụng tài nguyên.",
+      "Trả lại đất đúng thời hạn khi bị thu hồi.",
+      "Phục hồi môi trường sau khi khai thác khoáng sản."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": "Câu 7: Theo Nghị định 266/2026/NĐ-CP, hành vi vi phạm về thời hạn ban hành Chương trình tiết kiệm bao gồm:",
+    "options": [
+      "Ban hành chương trình sớm hơn 10 ngày.",
+      "Không ban hành hoặc ban hành không đúng thời hạn quy định.",
+      "Ban hành chương trình kèm theo dự toán ngân sách.",
+      "Gửi chương trình tiết kiệm cho cơ quan tài chính cấp trên."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": "Câu 8: Ngày toàn dân tiết kiệm, chống lãng phí được tổ chức hằng năm vào ngày nào theo Nghị định 266/2026/NĐ-CP?",
+    "options": [
+      "Ngày 01 tháng 01.",
+      "Ngày 31 tháng 5.",
+      "Ngày 02 tháng 9.",
+      "Ngày 27 tháng 7."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": "Câu 9: Nguyên tắc nào được ưu tiên khi tổ chức Ngày toàn dân tiết kiệm theo Nghị định 266/2026/NĐ-CP?",
+    "options": [
+      "Tổ chức họp mặt trực tiếp tại các hội trường lớn.",
+      "Ưu tiên triển khai trên môi trường điện tử.",
+      "Thuê đơn vị sự kiện chuyên nghiệp tổ chức.",
+      "Phải có sự tham gia của tất cả các doanh nghiệp tư nhân."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": "Câu 10: Nội dung triển khai Ngày toàn dân tiết kiệm theo Nghị định 266/2026/NĐ-CP bao gồm hoạt động nào?",
+    "options": [
+      "Tổ chức các giải thi đấu thể thao quy mô quốc gia.",
+      "Phổ biến quy định pháp luật về tiết kiệm gắn với đời sống nhân dân, chức năng nhiệm vụ đơn vị.",
+      "Mở đợt bán hàng giảm giá tại các siêu thị.",
+      "Quyên góp tiền cho các quỹ từ thiện xã hội."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": "Câu 11: Theo Nghị định 266/2026/NĐ-CP, cơ quan nào có trách nhiệm hướng dẫn nội dung tổ chức Ngày toàn dân tiết kiệm trong phạm vi cả nước?",
+    "options": [
+      "Bộ Nội vụ.",
+      "Bộ Tài chính.",
+      "Bộ Công Thương.",
+      "Tổng cục Thống kê."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": "Câu 12: Kinh phí tổ chức các hoạt động của Ngày toàn dân tiết kiệm được bố trí từ nguồn nào theo Nghị định 266/2026/NĐ-CP?",
+    "options": [
+      "Chỉ từ nguồn đóng góp của các doanh nghiệp.",
+      "Trong dự toán chi thường xuyên của các cơ quan, đơn vị theo phân cấp ngân sách.",
+      "Vay vốn từ các ngân hàng thương mại.",
+      "Trích từ quỹ lương của cán bộ, công chức."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": "Câu 13: Trong vòng bao nhiêu ngày kể từ khi Chiến lược quốc gia về phòng, chống lãng phí được phê duyệt, các bộ, ngành phải ban hành Kế hoạch tổ chức thực hiện (theo Nghị định 266/2026/NĐ-CP)?",
+    "options": [
+      "30 ngày.",
+      "60 ngày.",
+      "90 ngày.",
+      "120 ngày."
+    ],
+    "correctIndex": 2
+  },
+  {
+    "question": "Câu 14: Theo Nghị định 266/2026/NĐ-CP, các bộ, cơ quan trung ương ban hành Chương trình tiết kiệm hằng năm trước ngày nào?",
+    "options": [
+      "Ngày 01 tháng 01 năm sau.",
+      "Ngày 31 tháng 12 năm trước.",
+      "Ngày 15 tháng 01 năm thực hiện.",
+      "Ngày 31 tháng 01 năm thực hiện."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": "Câu 15: Căn cứ để xây dựng Chương trình tiết kiệm hằng năm của các bộ, ngành theo Nghị định 266/2026/NĐ-CP là:",
+    "options": [
+      "Chỉ số giá tiêu dùng của năm trước.",
+      "Kế hoạch phát triển kinh tế - xã hội hằng năm và Chiến lược quốc gia về phòng, chống lãng phí.",
+      "Đề xuất của các tổ chức quốc tế.",
+      "Kết quả thanh tra của năm trước đó."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": "Câu 16: Ai có trách nhiệm chỉ đạo xây dựng và ban hành Chương trình tiết kiệm của địa phương theo Nghị định 266/2026/NĐ-CP?",
+    "options": [
+      "Chủ tịch Hội đồng nhân dân cấp tỉnh.",
+      "Chủ tịch Ủy ban nhân dân cấp tỉnh.",
+      "Giám đốc Sở Tài chính.",
+      "Chánh Văn phòng UBND tỉnh."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": "Câu 17: Nghị định 266/2026/NĐ-CP quy định người đứng đầu cơ quan phải chịu trách nhiệm về điều gì đối với Kế hoạch thực hiện Chiến lược quốc gia?",
+    "options": [
+      "Chỉ chịu trách nhiệm về việc giải ngân vốn.",
+      "Tiến độ, chất lượng và hiệu quả triển khai Kế hoạch.",
+      "Việc quảng bá kế hoạch trên mạng xã hội.",
+      "Việc in ấn tài liệu kế hoạch."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": "Câu 18: Theo Nghị định 266/2026/NĐ-CP, Chương trình tiết kiệm và báo cáo kết quả phải được công khai trong vòng bao nhiêu ngày làm việc kể từ ngày ban hành?",
+    "options": [
+      "03 ngày làm việc.",
+      "05 ngày làm việc.",
+      "10 ngày làm việc.",
+      "15 ngày làm việc."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": "Câu 19: Kết quả xử lý hành vi gây lãng phí phải được công khai trong bao lâu theo quy định tại Nghị định 266/2026/NĐ-CP?",
+    "options": [
+      "Ngay lập tức khi có dấu hiệu vi phạm.",
+      "Trong vòng 05 ngày làm việc kể từ ngày cơ quan có thẩm quyền ra quyết định xử lý.",
+      "Sau khi người vi phạm đã nộp phạt xong.",
+      "Cuối năm khi tổng kết công tác."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": "Câu 20: Cơ quan nào là chủ quản xây dựng và quản lý Cơ sở dữ liệu quốc gia về tiết kiệm theo Nghị định 266/2026/NĐ-CP?",
+    "options": [
+      "Bộ Thông tin và Truyền thông.",
+      "Bộ Tài chính.",
+      "Bộ Kế hoạch và Đầu tư.",
+      "Văn phòng Chính phủ."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": "Câu 21: Theo Nghị định 266/2026/NĐ-CP, trong vòng mấy ngày làm việc các Bộ, ngành phải cập nhật Chương trình tiết kiệm vào cơ sở dữ liệu quốc gia kể từ ngày ban hành?",
+    "options": [
+      "05 ngày làm việc.",
+      "07 ngày làm việc.",
+      "10 ngày làm việc.",
+      "30 ngày làm việc."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": "Câu 22: Nghị định 266/2026/NĐ-CP quy định việc khai thác, sử dụng dữ liệu từ Cơ sở dữ liệu quốc gia phải tuân thủ quy định nào?",
+    "options": [
+      "Chỉ cần có sự đồng ý của lãnh đạo cơ quan cập nhật.",
+      "Tuân thủ pháp luật về tiếp cận thông tin, giao dịch điện tử, an ninh mạng và bảo vệ dữ liệu.",
+      "Miễn phí cho tất cả mọi cá nhân, tổ chức không cần điều kiện.",
+      "Phải nộp phí khai thác dữ liệu cho Bộ Tài chính."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": "Câu 23: Theo Nghị định 266/2026/NĐ-CP, nội dung kiểm tra việc chấp hành pháp luật về tiết kiệm bao gồm:",
+    "options": [
+      "Việc thực hiện Ngày toàn dân tiết kiệm.",
+      "Việc chi tiêu cá nhân của lãnh đạo cơ quan.",
+      "Việc thực hiện các hợp đồng kinh tế của doanh nghiệp tư nhân.",
+      "Việc kê khai tài sản của toàn bộ cán bộ công chức."
+    ],
+    "correctIndex": 0
+  },
+  {
+    "question": "Câu 24: Nguyên tắc kiểm tra quy định tại Nghị định 266/2026/NĐ-CP là:",
+    "options": [
+      "Kiểm tra bất ngờ không cần thông báo trước.",
+      "Không làm cản trở, ảnh hưởng đến hoạt động bình thường của đơn vị được kiểm tra.",
+      "Tập trung vào các đơn vị có thành tích tốt để khen thưởng.",
+      "Chỉ thực hiện kiểm tra khi có đơn khiếu nại."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": "Câu 25: Theo Nghị định 266/2026/NĐ-CP, ai có thẩm quyền ban hành quyết định kiểm tra?",
+    "options": [
+      "Trưởng phòng chuyên môn.",
+      "Người đứng đầu cơ quan, tổ chức quy định tại Điều 24 của Nghị định.",
+      "Tất cả cán bộ thanh tra.",
+      "Đại diện Mặt trận Tổ quốc."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": "Câu 26: Theo Nghị định 266/2026/NĐ-CP, Đoàn kiểm tra phải lập biên bản kiểm tra trong đó nêu rõ nội dung nào?",
+    "options": [
+      "Chỉ nêu tên các thành viên đoàn kiểm tra.",
+      "Đánh giá việc quản lý, sử dụng nguồn lực; kết quả xác minh; ý kiến của đối tượng kiểm tra.",
+      "Mức lương của đối tượng bị kiểm tra.",
+      "Danh sách các tài liệu đã bị hủy bỏ."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": "Câu 27: Trong vòng bao nhiêu ngày kể từ ngày kết thúc kiểm tra, Đoàn kiểm tra phải dự thảo kết luận kiểm tra theo Nghị định 266/2026/NĐ-CP?",
+    "options": [
+      "15 ngày.",
+      "01 tháng.",
+      "45 ngày.",
+      "02 tháng."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": "Câu 28: Nghị định 266/2026/NĐ-CP quy định đối tượng kiểm tra có quyền gì?",
+    "options": [
+      "Từ chối làm việc với đoàn kiểm tra nếu không thích.",
+      "Giải trình về những vấn đề liên quan đến nội dung kiểm tra.",
+      "Tự ý thay đổi số liệu trong hồ sơ trước khi nộp cho đoàn.",
+      "Yêu cầu đoàn kiểm tra cung cấp kinh phí ăn uống."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": "Câu 29: Yêu cầu đối với báo cáo kết quả tiết kiệm theo Nghị định 266/2026/NĐ-CP là:",
+    "options": [
+      "Chỉ cần nêu các thành tích đạt được.",
+      "Phải đảm bảo đánh giá cụ thể về kết quả đạt được, hạn chế, nguyên nhân và trách nhiệm.",
+      "Không cần số liệu minh họa.",
+      "Có thể dùng số liệu ước tính chưa qua kiểm chứng."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": "Câu 30: Thời gian chốt số liệu báo cáo định kỳ hằng năm theo Nghị định 266/2026/NĐ-CP là:",
+    "options": [
+      "Từ ngày 01/01 đến ngày 30/06 hằng năm.",
+      "Từ ngày 01/01 đến ngày 31/12 hằng năm.",
+      "Từ ngày 01/10 năm trước đến 30/09 năm sau.",
+      "Theo năm tài chính của doanh nghiệp."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": "Câu 31: Thời hạn gửi báo cáo định kỳ hằng năm vào Cơ sở dữ liệu quốc gia theo Nghị định 266/2026/NĐ-CP là:",
+    "options": [
+      "Trước ngày 31 tháng 12 cùng năm.",
+      "Trước ngày 28 tháng 02 năm sau liền kề.",
+      "Trước ngày 15 tháng 01 năm sau.",
+      "Bất cứ khi nào đơn vị hoàn thành báo cáo."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": "Câu 32: Cơ quan nào chịu trách nhiệm tổng hợp báo cáo của các bộ, ngành, địa phương để trình Chính phủ, Quốc hội theo Nghị định 266/2026/NĐ-CP?",
+    "options": [
+      "Văn phòng Chính phủ.",
+      "Bộ Tài chính.",
+      "Bộ Tư pháp.",
+      "Kiểm toán Nhà nước."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": "Câu 33: Nghị định 266/2026/NĐ-CP có hiệu lực thi hành từ ngày nào?",
+    "options": [
+      "Ngày 01 tháng 01 năm 2026.",
+      "Ngày 01 tháng 07 năm 2026.",
+      "Ngày 06 tháng 07 năm 2026.",
+      "Ngày 15 tháng 08 năm 2026."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": "Câu 34: Nghị định nào sau đây hết hiệu lực kể từ ngày Nghị định 266/2026/NĐ-CP có hiệu lực?",
+    "options": [
+      "Nghị định số 63/2025/NĐ-CP.",
+      "Nghị định số 84/2014/NĐ-CP.",
+      "Nghị định số 110/2025/NĐ-CP.",
+      "Nghị định số 265/2026/NĐ-CP."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": "Câu 35: Theo Nghị định 266/2026/NĐ-CP, trường hợp Kế hoạch thực hiện Chiến lược quốc gia đã ban hành trước ngày Nghị định này có hiệu lực thì xử lý thế nào?",
+    "options": [
+      "Phải hủy bỏ ngay lập tức và lập lại từ đầu.",
+      "Tiếp tục thực hiện cho đến khi được sửa đổi, bổ sung hoặc thay thế bởi cơ quan có thẩm quyền.",
+      "Ngừng toàn bộ các hoạt động chi ngân sách theo kế hoạch đó.",
+      "Chuyển toàn bộ nội dung kế hoạch sang năm 2027."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": "Câu 1: Theo Nghị định 267/2026/NĐ-CP, phạm vi điều chỉnh của Nghị định này quy định chi tiết nội dung nào?",
+    "options": [
+      "Quy định mức xử phạt vi phạm hành chính trong lĩnh vực tiết kiệm.",
+      "Quy định về việc áp dụng hình thức kỷ luật, loại trừ kỷ luật, miễn kỷ luật, giảm nhẹ mức kỷ luật và bồi thường thiệt hại.",
+      "Quy định về việc khen thưởng tổ chức có thành tích tiết kiệm.",
+      "Quy định về việc quản lý tài sản công tại các doanh nghiệp."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": "Câu 2: Nghị định 267/2026/NĐ-CP áp dụng đối với đối tượng nào sau đây?",
+    "options": [
+      "Cá nhân có hành vi gây lãng phí, hành vi vi phạm trong tổ chức thực hiện phòng, chống lãng phí.",
+      "Chỉ các cơ quan nhà nước ở trung ương.",
+      "Chỉ các tổ chức phi chính phủ.",
+      "Chỉ các hộ gia đình sử dụng điện lãng phí."
+    ],
+    "correctIndex": 0
+  },
+  {
+    "question": "Câu 3: Theo Nghị định 267/2026/NĐ-CP, việc xử lý kỷ luật đối với người quản lý doanh nghiệp nhà nước thực hiện theo quy định nào?",
+    "options": [
+      "Nghị định 267/2026/NĐ-CP.",
+      "Nghị định số 181/2026/NĐ-CP.",
+      "Luật Ngân sách nhà nước.",
+      "Quy định nội bộ của doanh nghiệp."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": "Câu 4: Đối tượng bị xử lý kỷ luật theo Nghị định 267/2026/NĐ-CP bao gồm những ai?",
+    "options": [
+      "Người đứng đầu, cấp phó của người đứng đầu cơ quan, tổ chức, đơn vị.",
+      "Cán bộ, công chức, viên chức có hành vi gây lãng phí.",
+      "Cán bộ, công chức, viên chức có hành vi vi phạm trong tổ chức thực hiện phòng, chống lãng phí.",
+      "Tất cả các phương án trên."
+    ],
+    "correctIndex": 3
+  },
+  {
+    "question": "Câu 5: Theo Nghị định 267/2026/NĐ-CP, ai là người chịu trách nhiệm bồi thường thiệt hại?",
+    "options": [
+      "Người trực tiếp thực hiện hành vi gây lãng phí gây thiệt hại.",
+      "Người đứng đầu cơ quan dù không trực tiếp gây lãng phí.",
+      "Cơ quan bảo hiểm xã hội.",
+      "Người cung cấp thông tin về lãng phí."
+    ],
+    "correctIndex": 0
+  },
+  {
+    "question": "Câu 6: Theo Nghị định 267/2026/NĐ-CP, trường hợp nào sau đây được xem xét giảm nhẹ mức kỷ luật?",
+    "options": [
+      "Vi phạm lần đầu và thiệt hại dưới 2 triệu đồng.",
+      "Thực hiện theo mệnh lệnh, quyết định của cấp trên mà không biết các quyết định đó là trái pháp luật.",
+      "Vi phạm do thiếu hiểu biết về pháp luật.",
+      "Đã nghỉ hưu trước khi hành vi lãng phí bị phát hiện."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": "Câu 7: Hình thức kỷ luật \"Khiển trách\" áp dụng đối với người đứng đầu, cấp phó để xảy ra lãng phí bị xử lý hình sự bằng hình thức nào theo Nghị định 267/2026/NĐ-CP?",
+    "options": [
+      "Phạt tiền, phạt cải tạo không giam giữ hoặc phạt tù đến 03 năm.",
+      "Phạt tù từ 03 năm đến 07 năm.",
+      "Phạt tù trên 10 năm.",
+      "Tịch thu tài sản cá nhân."
+    ],
+    "correctIndex": 0
+  },
+  {
+    "question": "Câu 8: Theo Nghị định 267/2026/NĐ-CP, hình thức kỷ luật \"Cảnh cáo\" áp dụng đối với người đứng đầu, cấp phó để xảy ra lãng phí bị xử lý hình sự bằng hình thức phạt tù trong khoảng nào?",
+    "options": [
+      "Dưới 03 năm.",
+      "Từ trên 03 năm đến 07 năm.",
+      "Từ 07 năm đến 15 năm.",
+      "Phạt tù chung thân."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": "Câu 9: Hình thức kỷ luật \"Cách chức\" áp dụng đối với người đứng đầu, cấp phó để xảy ra lãng phí bị xử lý hình sự bằng hình thức phạt tù từ bao nhiêu năm theo Nghị định 267/2026/NĐ-CP?",
+    "options": [
+      "Từ 01 năm đến 05 năm.",
+      "Từ trên 07 năm đến 20 năm, chung thân hoặc tử hình.",
+      "Chỉ áp dụng với án tử hình.",
+      "Không áp dụng cách chức nếu đã bị xử lý hình sự."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": "Câu 10: Theo Nghị định 267/2026/NĐ-CP, cán bộ, công chức, viên chức vi phạm lần đầu gây thiệt hại ở mức nào thì bị \"Khiển trách\"?",
+    "options": [
+      "Dưới 2 triệu đồng.",
+      "Từ 02 triệu đồng đến dưới 50 triệu đồng.",
+      "Từ 50 triệu đồng đến 75 triệu đồng.",
+      "Trên 100 triệu đồng."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": "Câu 11: Cán bộ có hành vi chậm ban hành các văn bản quy phạm pháp luật về định mức, tiêu chuẩn gây lãng phí bị xử lý kỷ luật gì theo Nghị định 267/2026/NĐ-CP?",
+    "options": [
+      "Phạt tiền.",
+      "Khiển trách.",
+      "Cảnh cáo.",
+      "Buộc thôi việc."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": "Câu 12: Hình thức kỷ luật \"Cảnh cáo\" áp dụng đối với cán bộ, công chức, viên chức gây thiệt hại lần đầu ở mức nào theo Nghị định 267/2026/NĐ-CP?",
+    "options": [
+      "Từ 02 triệu đồng đến 50 triệu đồng.",
+      "Từ 50 triệu đồng đến 75 triệu đồng.",
+      "Từ 75 triệu đồng đến 100 triệu đồng.",
+      "Dưới 1 triệu đồng."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": "Câu 13: Theo Nghị định 267/2026/NĐ-CP, cán bộ, công chức giữ chức vụ lãnh đạo, quản lý bị \"Cách chức\" nếu gây thiệt hại lần đầu ở mức nào và có thái độ tiếp thu, sửa chữa?",
+    "options": [
+      "Dưới 50 triệu đồng.",
+      "Trên 75 triệu đồng.",
+      "Từ 10 triệu đồng đến 20 triệu đồng.",
+      "Không bị cách chức nếu đã sửa chữa hậu quả."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": "Câu 14: Hình thức kỷ luật \"Buộc thôi việc\" áp dụng đối với công chức, viên chức gây lãng phí lần đầu trên 75 triệu đồng trong trường hợp nào (theo Nghị định 267/2026/NĐ-CP)?",
+    "options": [
+      "Có thái độ tiếp thu, tự giác khắc phục hậu quả.",
+      "Không có thái độ tiếp thu, sửa chữa, chủ động khắc phục hậu quả.",
+      "Đã bị khiển trách trước đó.",
+      "Vi phạm do khách quan."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": "Câu 15: Theo Nghị định 267/2026/NĐ-CP, hành vi \"Cản trở hoặc thiếu trách nhiệm trong thanh tra, kiểm tra tiết kiệm\" bị xử lý kỷ luật gì lần đầu?",
+    "options": [
+      "Phạt cảnh cáo.",
+      "Khiển trách.",
+      "Cách chức.",
+      "Buộc thôi việc."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": "Câu 16: Vi phạm trong việc bảo vệ người đấu tranh chống lãng phí theo Nghị định 267/2026/NĐ-CP bị xử lý kỷ luật hình thức nào?",
+    "options": [
+      "Khiển trách.",
+      "Cảnh cáo.",
+      "Hạ bậc lương.",
+      "Phê bình nghiêm túc."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": "Câu 17: Theo Nghị định 267/2026/NĐ-CP, nguyên tắc xác định thiệt hại để tính bồi thường là gì?",
+    "options": [
+      "Thiệt hại ước tính dựa trên dư luận xã hội.",
+      "Thiệt hại thực tế, có thể lượng hóa thành tiền.",
+      "Thiệt hại tinh thần của cơ quan.",
+      "Toàn bộ tài sản của người vi phạm."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": "Câu 18: Việc xem xét trách nhiệm bồi thường thiệt hại phải căn cứ vào yếu tố nào theo Nghị định 267/2026/NĐ-CP?",
+    "options": [
+      "Lỗi, tính chất, mức độ của hành vi và thiệt hại thực tế gây ra.",
+      "Mức lương của người vi phạm.",
+      "Thâm niên công tác của người vi phạm.",
+      "Ý kiến của tập thể đồng nghiệp."
+    ],
+    "correctIndex": 0
+  },
+  {
+    "question": "Câu 19: Theo Nghị định 267/2026/NĐ-CP, nếu hành vi lãng phí do nhiều người gây ra mà không có căn cứ xác định mức độ lỗi riêng biệt thì trách nhiệm bồi thường được tính thế nào?",
+    "options": [
+      "Người đứng đầu chịu toàn bộ.",
+      "Chia đều cho từng người.",
+      "Người có lương cao nhất chịu toàn bộ.",
+      "Miễn bồi thường cho tất cả."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": "Câu 20: Cách xác định thiệt hại đối với hậu quả làm tăng chi ngân sách nhà nước theo Nghị định 267/2026/NĐ-CP là:",
+    "options": [
+      "Số kinh phí bổ sung so với dự toán, tổng mức đầu tư được phê duyệt do hành vi gây lãng phí trực tiếp gây ra.",
+      "Toàn bộ dự toán được giao từ đầu năm.",
+      "Số tiền tiết kiệm được của đơn vị khác.",
+      "Mức lương của người làm tăng chi ngân sách."
+    ],
+    "correctIndex": 0
+  },
+  {
+    "question": "Câu 21: Theo Nghị định 267/2026/NĐ-CP, thiệt hại đối với hậu quả gây thất thoát ngân sách là:",
+    "options": [
+      "Số kinh phí đã chi không đúng mục đích, đối tượng, định mức, tiêu chuẩn.",
+      "Số kinh phí đã tạm ứng nhưng không thể thu hồi.",
+      "Phần lợi nhuận phải nộp ngân sách bị giảm do trích lập quỹ không đúng mục đích.",
+      "Tất cả các phương án trên."
+    ],
+    "correctIndex": 3
+  },
+  {
+    "question": "Câu 22: Nghị định 267/2026/NĐ-CP xác định thiệt hại đối với dự án đầu tư xây dựng bị phá dỡ là gì?",
+    "options": [
+      "Chi phí mua đất.",
+      "Toàn bộ kinh phí ngân sách nhà nước đã chi để thực hiện việc phá dỡ công trình đó.",
+      "Giá trị của công trình tương đương trên thị trường.",
+      "Không tính bồi thường vì công trình đã hỏng."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": "Câu 23: Đối với dự án bị kéo dài thời gian, tiến độ so với phê duyệt, thiệt hại được xác định theo Nghị định 267/2026/NĐ-CP như thế nào?",
+    "options": [
+      "Số tiền thuế lẽ ra phải nộp.",
+      "Số tiền lãi thực tế từ nguồn vốn nhà nước đã đầu tư nhân với lãi suất tiền gửi thấp nhất của các ngân hàng thương mại do Nhà nước nắm giữ trên 50% vốn.",
+      "Chi phí nhân công trong thời gian chậm trễ.",
+      "Không xác định được thiệt hại bằng tiền."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": "Câu 24: Theo Nghị định 267/2026/NĐ-CP, không xác định thiệt hại đối với dự án chậm tiến độ do nguyên nhân nào?",
+    "options": [
+      "Cố ý thực hiện hành vi vi phạm.",
+      "Nguyên nhân bất khả kháng, thiên tai, dịch bệnh, chậm giải phóng mặt bằng không thuộc lỗi của người bị xem xét.",
+      "Thiếu trách nhiệm quản lý.",
+      "Sử dụng công nghệ lạc hậu."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": "Câu 25: Thiệt hại đối với hậu quả làm hao hụt tài sản công vượt định mức được quy định tại Nghị định 267/2026/NĐ-CP là gì?",
+    "options": [
+      "Toàn bộ giá trị tài sản công.",
+      "Phần giá trị tài sản bị hao hụt vượt định mức theo quy định.",
+      "Chi phí bảo hiểm tài sản.",
+      "Chi phí mua sắm tài sản mới."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": "Câu 26: Theo Nghị định 267/2026/NĐ-CP, thiệt hại đối với tài sản công không được đưa vào sử dụng được xác định là:",
+    "options": [
+      "Giá trị mua mới tài sản.",
+      "Giá trị hao mòn, khấu hao tài sản cố định trong thời gian không được đưa vào sử dụng.",
+      "Chi phí thuê kho bãi lưu giữ.",
+      "Lợi nhuận kỳ vọng từ tài sản đó."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": "Câu 27: Việc xác định thiệt hại đối với tài sản công không được đưa vào sử dụng không áp dụng trong trường hợp nào (Nghị định 267/2026/NĐ-CP)?",
+    "options": [
+      "Cố tình để trống tài sản.",
+      "Sắp xếp tổ chức bộ máy, chờ cấp có thẩm quyền quyết định xử lý tài sản.",
+      "Sử dụng tài sản sai mục đích.",
+      "Quên không đưa vào sử dụng."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": "Câu 28: Theo Nghị định 267/2026/NĐ-CP, cơ quan nào có thẩm quyền ra quyết định bồi thường thiệt hại đối với người vi phạm không thuộc diện bị truy cứu trách nhiệm hình sự?",
+    "options": [
+      "Tòa án nhân dân cùng cấp.",
+      "Cấp có thẩm quyền xử lý kỷ luật cán bộ, công chức, viên chức.",
+      "Cơ quan Công an.",
+      "Ủy ban Kiểm tra Đảng."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": "Câu 29: Theo Nghị định 267/2026/NĐ-CP, quyết định bồi thường thiệt hại phải được gửi cho người có nghĩa vụ bồi thường trong vòng bao lâu kể từ ngày ra quyết định?",
+    "options": [
+      "03 ngày làm việc.",
+      "05 ngày làm việc.",
+      "07 ngày làm việc.",
+      "15 ngày làm việc."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": "Câu 30: Người có nghĩa vụ bồi thường thiệt hại phải thực hiện bồi thường một lần trong thời hạn bao lâu kể từ ngày nhận quyết định (theo Nghị định 267/2026/NĐ-CP)?",
+    "options": [
+      "15 ngày.",
+      "30 ngày.",
+      "60 ngày.",
+      "90 ngày."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": "Câu 31: Theo Nghị định 267/2026/NĐ-CP, việc nộp tiền bồi thường nhiều lần được áp dụng khi số tiền bồi thường từ bao nhiêu trở lên?",
+    "options": [
+      "5.000.000 đồng.",
+      "10.000.000 đồng.",
+      "15.000.000 đồng trở lên.",
+      "50.000.000 đồng."
+    ],
+    "correctIndex": 2
+  },
+  {
+    "question": "Câu 32: Thời hạn nộp tiền bồi thường thiệt hại nhiều lần tối đa là bao lâu theo Nghị định 267/2026/NĐ-CP?",
+    "options": [
+      "06 tháng.",
+      "12 tháng.",
+      "24 tháng.",
+      "36 tháng."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": "Câu 33: Theo Nghị định 267/2026/NĐ-CP, trường hợp người vi phạm cố tình trì hoãn bồi thường, cơ quan có thể trừ lương hàng tháng với tỷ lệ bao nhiêu?",
+    "options": [
+      "10% tiền lương.",
+      "20% tiền lương thực trả sau khi trừ các khoản bảo hiểm.",
+      "50% tiền lương.",
+      "Trừ toàn bộ lương cho đến khi đủ."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": "Câu 34: Theo Nghị định 267/2026/NĐ-CP, trường hợp nào sau đây được tạm hoãn thực hiện bồi thường?",
+    "options": [
+      "Người vi phạm đang điều trị tại bệnh viện, phụ nữ trong thời kỳ nghỉ thai sản.",
+      "Người vi phạm đang đi công tác nước ngoài.",
+      "Gia đình người vi phạm thuộc hộ nghèo, hộ cận nghèo có xác nhận của UBND cấp xã.",
+      "Cả A và C đều đúng."
+    ],
+    "correctIndex": 3
+  },
+  {
+    "question": "Câu 35: Nghị định 267/2026/NĐ-CP chính thức có hiệu lực thi hành từ ngày nào?",
+    "options": [
+      "Ngày 01 tháng 01 năm 2026.",
+      "Ngày 01 tháng 07 năm 2026.",
+      "Ngày 01 tháng 01 năm 2027.",
+      "Ngày ký ban hành."
+    ],
+    "correctIndex": 1
+  }
+]

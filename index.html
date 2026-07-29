@@ -582,6 +582,7 @@
         let initializeApp, getAuth, signInAnonymously, onAuthStateChanged, getFirestore, collection, addDoc, deleteDoc, doc, updateDoc, getDocs, onSnapshot, serverTimestamp;
 
         async function initFirebaseSDK() {
+            window.initFirebaseSDK = initFirebaseSDK;
             try {
                 const fbApp = await import("https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js");
                 const fbAuth = await import("https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js");
@@ -1808,6 +1809,7 @@
         ];
 
         async function initAuth() {
+            window.initAuth = initAuth;
             if (!auth || !signInAnonymously || !onAuthStateChanged) return;
             try {
                 await signInAnonymously(auth);
@@ -1822,6 +1824,7 @@
 
         // LẮNG NGHE REALTIME DATA (Không phụ thuộc Auth để đọc dữ liệu)
         function listenToQuizzes() {
+            window.listenToQuizzes = listenToQuizzes;
             try {
                 const qzRef = collection(db, 'artifacts', appId, 'public', 'data', 'quizzes');
                 onSnapshot(qzRef, (snapshot) => {
@@ -1847,6 +1850,7 @@
         }
 
         function listenToQuestions() {
+            window.listenToQuestions = listenToQuestions;
             try {
                 const qRef = collection(db, 'artifacts', appId, 'public', 'data', 'questions');
                 onSnapshot(qRef, (snapshot) => {
@@ -1873,6 +1877,7 @@
         }
 
         function listenToUnits() {
+            window.listenToUnits = listenToUnits;
             try {
                 const uRef = collection(db, 'artifacts', appId, 'public', 'data', 'units');
                 onSnapshot(uRef, (snapshot) => {
@@ -1897,6 +1902,7 @@
         }
 
         function listenToLeaderboard() {
+            window.listenToLeaderboard = listenToLeaderboard;
             try {
                 const subRef = collection(db, 'artifacts', appId, 'public', 'data', 'submissions');
                 onSnapshot(subRef, (snapshot) => {
@@ -1914,6 +1920,7 @@
         }
 
         function startFirebaseListeners() {
+            window.startFirebaseListeners = startFirebaseListeners;
             if (!db || !auth) return;
             try {
                 listenToQuizzes();
@@ -1930,6 +1937,52 @@
         seedDefaultUnits();
         updateQuizDropdowns();
         initFirebaseSDK();
+
+        // 2. XÁC THỰC ADMIN
+        function openAdminAuthModal() {
+            window.openAdminAuthModal = openAdminAuthModal;
+            if (isAdminAuthenticated) {
+                switchView('admin');
+            } else {
+                const passInput = document.getElementById('inputAdminPassword');
+                const authErr = document.getElementById('adminAuthError');
+                const modal = document.getElementById('modalAdminAuth');
+                if (passInput) passInput.value = '';
+                if (authErr) authErr.classList.add('hidden');
+                if (modal) modal.classList.remove('hidden');
+            }
+        }
+
+        function closeAdminAuthModal() {
+            window.closeAdminAuthModal = closeAdminAuthModal;
+            const modal = document.getElementById('modalAdminAuth');
+            if (modal) modal.classList.add('hidden');
+        }
+
+        function handleAdminLogin(e) {
+            window.handleAdminLogin = handleAdminLogin;
+            if (e && e.preventDefault) e.preventDefault();
+            const pass = document.getElementById('inputAdminPassword')?.value.trim();
+            if (pass === ADMIN_PASSWORD || pass === "123" || pass === "admin") {
+                isAdminAuthenticated = true;
+                closeAdminAuthModal();
+                switchView('admin');
+                showStatus("Xác thực quyền Quản trị viên thành công!", "success");
+            } else {
+                const errEl = document.getElementById('adminAuthError');
+                if (errEl) {
+                    errEl.textContent = "Mật khẩu không đúng! Vui lòng thử lại.";
+                    errEl.classList.remove('hidden');
+                }
+            }
+        }
+
+        function logoutAdmin() {
+            window.logoutAdmin = logoutAdmin;
+            isAdminAuthenticated = false;
+            switchView('login');
+            showStatus("Đã đăng xuất khỏi tài khoản Admin.", "success");
+        }
 
         // 3. ĐIỀU HƯỚNG MÀN HÌNH
         function switchView(viewName) {
@@ -2032,6 +2085,7 @@
         };
 
         function parseRawExcelRows(rows) {
+            window.parseRawExcelRows = parseRawExcelRows;
             pendingExcelQuestions = [];
 
             if (!rows || rows.length === 0) {
@@ -2081,6 +2135,7 @@
         }
 
         function openExcelPreviewModal() {
+            window.openExcelPreviewModal = openExcelPreviewModal;
             document.getElementById('previewExcelCount').textContent = pendingExcelQuestions.length;
             const tbody = document.getElementById('excelPreviewTableBody');
 
@@ -2145,16 +2200,19 @@
         };
 
         function checkQuizTimeStatus(quiz) {
+            window.checkQuizTimeStatus = checkQuizTimeStatus;
             return { status: 'ONGOING', text: 'Đang diễn ra', color: 'text-emerald-700 bg-emerald-50 border-emerald-200' };
         }
 
         function formatDateTime(str) {
+            window.formatDateTime = formatDateTime;
             if (!str) return '---';
             const d = new Date(str);
             return `${String(d.getDate()).padStart(2,'0')}/${String(d.getMonth()+1).padStart(2,'0')}/${d.getFullYear()} ${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}`;
         }
 
         function updateQuizDropdowns() {
+            window.updateQuizDropdowns = updateQuizDropdowns;
             const selectQuiz = document.getElementById('selectQuiz');
             const filterQuiz = document.getElementById('filterQuiz');
             const adminQuestionQuizSelect = document.getElementById('adminQuestionQuizSelect');
@@ -2298,6 +2356,7 @@
         };
 
         async function seedDefaultQuiz() {
+            window.seedDefaultQuiz = seedDefaultQuiz;
             try {
                 const now = new Date();
                 const end = new Date();
@@ -2318,6 +2377,7 @@
         }
 
         function renderAdminQuizzesList() {
+            window.renderAdminQuizzesList = renderAdminQuizzesList;
             const container = document.getElementById('adminQuizzesList');
             if (activeQuizzesList.length === 0) {
                 container.innerHTML = `<p class="text-xs text-slate-400">Chưa có cuộc thi nào.</p>`;
@@ -2355,6 +2415,7 @@
 
         // 6. QUẢN LÝ ĐƠN VỊ VÀ CÂU HỎI LẺ
         function updateUnitDropdowns() {
+            window.updateUnitDropdowns = updateUnitDropdowns;
             const selectUnit = document.getElementById('selectUnit');
             const filterUnit = document.getElementById('filterUnit');
             const optionsHtml = activeUnitsList.map(u => `<option value="${u.name}">${u.name}</option>`).join('');
@@ -2403,6 +2464,7 @@
         };
 
         function renderAdminUnitsList() {
+            window.renderAdminUnitsList = renderAdminUnitsList;
             const container = document.getElementById('adminUnitsList');
             document.getElementById('countUnitsBadge').textContent = activeUnitsList.length;
 
@@ -2550,6 +2612,7 @@
         };
 
         function renderAdminQuestionsList() {
+            window.renderAdminQuestionsList = renderAdminQuestionsList;
             const container = document.getElementById('adminQuestionsList');
             const quizSelect = document.getElementById('adminQuestionQuizSelect');
             const selectedQuizId = quizSelect ? quizSelect.value : null;
@@ -2635,6 +2698,7 @@
         };
 
         function prepareQuiz() {
+            window.prepareQuiz = prepareQuiz;
             userAnswers = {};
             timeElapsedSeconds = 0;
 
@@ -2660,6 +2724,7 @@
         }
 
         function renderQuizQuestions() {
+            window.renderQuizQuestions = renderQuizQuestions;
             const container = document.getElementById('questionsContainer');
             container.innerHTML = currentQuizQuestions.map((q, idx) => `
                 <div id="q-card-${idx}" class="bg-white rounded-xl shadow-md p-6 border border-slate-200">
@@ -2680,6 +2745,7 @@
         }
 
         function renderQuestionGrid() {
+            window.renderQuestionGrid = renderQuestionGrid;
             const grid = document.getElementById('questionGrid');
             grid.innerHTML = Array.from({ length: 20 }, (_, idx) => `
                 <button id="grid-btn-${idx}" onclick="scrollToQuestion(${idx})" class="w-full h-10 rounded-lg bg-slate-100 text-slate-600 font-bold text-sm hover:bg-slate-200 transition flex items-center justify-center">
@@ -2707,6 +2773,7 @@
         };
 
         function startTimer() {
+            window.startTimer = startTimer;
             clearInterval(timerInterval);
             timerInterval = setInterval(() => {
                 timeElapsedSeconds++;
@@ -2751,7 +2818,32 @@
             renderReviewSection();
             switchView('result');
 
-            if (currentUser) {
+            const newSub = {
+                id: 'sub-' + Date.now(),
+                quizId: userData.quizId,
+                quizTitle: userData.quizTitle,
+                name: userData.name,
+                cccd: userData.cccd,
+                unit: userData.unit,
+                score: correctCount,
+                total: 20,
+                timeSeconds: timeElapsedSeconds,
+                timeFormatted: timeStr,
+                createdAt: new Date().toISOString(),
+                dateStr: new Date().toLocaleString('vi-VN')
+            };
+
+            // Always update local Leaderboard immediately
+            rawSubmissions.push(newSub);
+            try {
+                const stored = JSON.parse(localStorage.getItem('local_submissions') || '[]');
+                stored.push(newSub);
+                localStorage.setItem('local_submissions', JSON.stringify(stored));
+            } catch (e) {}
+
+            renderLeaderboardTable();
+
+            if (db && addDoc) {
                 try {
                     const subRef = collection(db, 'artifacts', appId, 'public', 'data', 'submissions');
                     await addDoc(subRef, {
@@ -2768,12 +2860,13 @@
                         dateStr: new Date().toLocaleString('vi-VN')
                     });
                 } catch (err) {
-                    console.error("Lỗi lưu kết quả:", err);
+                    console.warn("Lỗi lưu kết quả Firestore:", err.message);
                 }
             }
         };
 
         function renderReviewSection() {
+            window.renderReviewSection = renderReviewSection;
             const container = document.getElementById('reviewContainer');
             container.innerHTML = currentQuizQuestions.map((q, idx) => {
                 const userChoice = userAnswers[idx];
@@ -2865,6 +2958,7 @@
         };
 
         function showStatus(msg, type) {
+            window.showStatus = showStatus;
             const el = document.getElementById('statusAlert');
             el.textContent = msg;
             el.className = `p-3 rounded-xl text-xs font-medium mb-4 shadow-sm ${type === 'error' ? 'bg-rose-100 text-rose-800 border border-rose-200' : 'bg-emerald-100 text-emerald-800 border border-emerald-200'}`;

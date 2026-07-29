@@ -53,7 +53,7 @@
                 <div>
                     <label class="block text-sm font-semibold text-slate-700 mb-1">Cuộc Thi / Đợt Thi <span class="text-red-500">*</span></label>
                     <select id="selectQuiz" onchange="onQuizSelectChange()" required class="w-full px-4 py-2.5 rounded-lg border border-slate-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition bg-white font-medium text-slate-800">
-                        <option value="">-- Đang tải danh sách cuộc thi... --</option>
+                        <option value="j814OsorghaODen4HRZr">Cuộc Thi Tiết Kiệm 2026 (Nghị định 265/2026/NĐ-CP) [Đang diễn ra]</option>
                     </select>
                 </div>
 
@@ -74,7 +74,14 @@
                 <div>
                     <label class="block text-sm font-semibold text-slate-700 mb-1">Đơn vị / Phòng / Ban <span class="text-red-500">*</span></label>
                     <select id="selectUnit" required class="w-full px-4 py-2.5 rounded-lg border border-slate-300 focus:ring-2 focus:ring-indigo-500 outline-none transition bg-white">
-                        <option value="">-- Đang tải danh sách đơn vị... --</option>
+                        <option value="">-- Chọn Đơn Vị / Phòng / Ban --</option>
+                        <option value="Phòng Hành chính - Nhân sự">Phòng Hành chính - Nhân sự</option>
+                        <option value="Phòng Kế toán - Tài chính">Phòng Kế toán - Tài chính</option>
+                        <option value="Phòng Kỹ thuật - Công nghệ">Phòng Kỹ thuật - Công nghệ</option>
+                        <option value="Phòng Kinh doanh - Marketing">Phòng Kinh doanh - Marketing</option>
+                        <option value="Chi nhánh 1">Chi nhánh 1</option>
+                        <option value="Chi nhánh 2">Chi nhánh 2</option>
+                        <option value="Đơn vị khác">Đơn vị khác</option>
                     </select>
                 </div>
 
@@ -556,28 +563,54 @@
         </div>
     </div>
 
-    <!-- FIREBASE ENGINE (SDK v11) -->
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-        import { getAuth, signInAnonymously, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
-        import { getFirestore, collection, addDoc, deleteDoc, doc, updateDoc, getDocs, onSnapshot, serverTimestamp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
-
+    <!-- FIREBASE ENGINE & APPLICATION LOGIC -->
+    <script>
         // 1. CẤU HÌNH FIREBASE
         const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {
-    apiKey: "AIzaSyDEo3uJzrC7AtQXhQ2K5XISPln7upLjZNQ",
-    authDomain: "mirats101.firebaseapp.com",
-    projectId: "mirats101",
-    storageBucket: "mirats101.firebasestorage.app",
-    messagingSenderId: "323767193040",
-    appId: "1:323767193040:web:6957c1011459cbe0eb3dd5",
-    measurementId: "G-FQN4N860TE"
+            apiKey: "AIzaSyDEo3uJzrC7AtQXhQ2K5XISPln7upLjZNQ",
+            authDomain: "mirats101.firebaseapp.com",
+            projectId: "mirats101",
+            storageBucket: "mirats101.firebasestorage.app",
+            messagingSenderId: "323767193040",
+            appId: "1:323767193040:web:6957c1011459cbe0eb3dd5",
+            measurementId: "G-FQN4N860TE"
         };
 
         const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-quiz-app';
 
-        const app = initializeApp(firebaseConfig);
-        const auth = getAuth(app);
-        const db = getFirestore(app);
+        let app = null, auth = null, db = null;
+        let initializeApp, getAuth, signInAnonymously, onAuthStateChanged, getFirestore, collection, addDoc, deleteDoc, doc, updateDoc, getDocs, onSnapshot, serverTimestamp;
+
+        async function initFirebaseSDK() {
+            try {
+                const fbApp = await import("https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js");
+                const fbAuth = await import("https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js");
+                const fbDb = await import("https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js");
+
+                initializeApp = fbApp.initializeApp;
+                getAuth = fbAuth.getAuth;
+                signInAnonymously = fbAuth.signInAnonymously;
+                onAuthStateChanged = fbAuth.onAuthStateChanged;
+                getFirestore = fbDb.getFirestore;
+                collection = fbDb.collection;
+                addDoc = fbDb.addDoc;
+                deleteDoc = fbDb.deleteDoc;
+                doc = fbDb.doc;
+                updateDoc = fbDb.updateDoc;
+                getDocs = fbDb.getDocs;
+                onSnapshot = fbDb.onSnapshot;
+                serverTimestamp = fbDb.serverTimestamp;
+
+                app = initializeApp(firebaseConfig);
+                auth = getAuth(app);
+                db = getFirestore(app);
+
+                console.log("Firebase SDK loaded dynamically.");
+                startFirebaseListeners();
+            } catch (err) {
+                console.warn("Firebase async load warning (Running in offline/embedded mode):", err.message);
+            }
+        }
 
         // Mật khẩu Admin mặc định
         const ADMIN_PASSWORD = "admin123";
@@ -1774,19 +1807,18 @@
             "Đơn vị khác"
         ];
 
-        // 2. AUTHENTICATION & LISTENERS
         async function initAuth() {
+            if (!auth || !signInAnonymously || !onAuthStateChanged) return;
             try {
                 await signInAnonymously(auth);
+                onAuthStateChanged(auth, (user) => {
+                    currentUser = user;
+                    showStatus("Kết nối Firebase Firestore thành công!", "success");
+                });
             } catch (err) {
                 console.warn("Firebase Auth Notice:", err.message);
             }
         }
-
-        onAuthStateChanged(auth, (user) => {
-            currentUser = user;
-            showStatus("Kết nối Firebase Firestore thành công!", "success");
-        });
 
         // LẮNG NGHE REALTIME DATA (Không phụ thuộc Auth để đọc dữ liệu)
         function listenToQuizzes() {
@@ -1881,17 +1913,27 @@
             }
         }
 
-        // Tự động chạy ngay các listener dữ liệu và render giao diện ban đầu khi trang vừa mở
+        function startFirebaseListeners() {
+            if (!db || !auth) return;
+            try {
+                listenToQuizzes();
+                listenToQuestions();
+                listenToUnits();
+                listenToLeaderboard();
+                initAuth();
+            } catch (e) {
+                console.warn("Start listeners warning:", e);
+            }
+        }
+
+        // Tự động chạy ngay giao diện ban đầu từ dữ liệu nhúng
         seedDefaultUnits();
         updateQuizDropdowns();
-        listenToQuizzes();
-        listenToQuestions();
-        listenToUnits();
-        listenToLeaderboard();
-        initAuth();
+        initFirebaseSDK();
 
         // 3. ĐIỀU HƯỚNG MÀN HÌNH
-        window.switchView = function(viewName) {
+        function switchView(viewName) {
+            window.switchView = switchView;
             document.getElementById('viewLogin').classList.add('hidden');
             document.getElementById('viewQuiz').classList.add('hidden');
             document.getElementById('viewResult').classList.add('hidden');
@@ -1914,7 +1956,8 @@
             }
         };
 
-        window.switchAdminTab = function(tabName) {
+        function switchAdminTab(tabName) {
+            window.switchAdminTab = switchAdminTab;
             const tabQz = document.getElementById('adminTabQuizzes');
             const tabQ = document.getElementById('adminTabQuestions');
             const tabU = document.getElementById('adminTabUnits');
@@ -1943,7 +1986,8 @@
         };
 
         // 4. ĐỌC FILE EXCEL & GOOGLE SHEETS
-        window.handleExcelFileUpload = function(e) {
+        function handleExcelFileUpload(e) {
+            window.handleExcelFileUpload = handleExcelFileUpload;
             const file = e.target.files[0];
             if (!file) return;
 
@@ -1965,7 +2009,8 @@
             e.target.value = ''; // Reset file input
         };
 
-        window.fetchGoogleSheetCsv = async function() {
+        async function fetchGoogleSheetCsv() {
+            window.fetchGoogleSheetCsv = fetchGoogleSheetCsv;
             const url = document.getElementById('googleSheetUrlInput').value.trim();
             if (!url) {
                 showStatus("Vui lòng dán đường link CSV của Google Sheets!", "error");
@@ -2054,11 +2099,13 @@
             document.getElementById('modalExcelPreview').classList.remove('hidden');
         }
 
-        window.closeExcelPreviewModal = function() {
+        function closeExcelPreviewModal() {
+            window.closeExcelPreviewModal = closeExcelPreviewModal;
             document.getElementById('modalExcelPreview').classList.add('hidden');
         };
 
-        window.confirmUploadExcelToFirebase = async function() {
+        async function confirmUploadExcelToFirebase() {
+            window.confirmUploadExcelToFirebase = confirmUploadExcelToFirebase;
             if (pendingExcelQuestions.length === 0) return;
 
             closeExcelPreviewModal();
@@ -2082,7 +2129,8 @@
         };
 
         // TẠO VÀ TẢI FILE EXCEL MẪU DẠNG BLOB
-        window.downloadSampleExcel = function() {
+        function downloadSampleExcel() {
+            window.downloadSampleExcel = downloadSampleExcel;
             const sampleData = [
                 ["Nội dung câu hỏi", "Đáp án A", "Đáp án B", "Đáp án C", "Đáp án D", "Đáp án đúng (1-4 hoặc A-D)"],
                 ["Thủ đô của nước Việt Nam là gì?", "TP. Hồ Chí Minh", "Hà Nội", "Đà Nẵng", "Cần Thơ", "B"],
@@ -2142,7 +2190,8 @@
             renderAdminQuestionsList();
         }
 
-        window.onQuizSelectChange = function() {
+        function onQuizSelectChange() {
+            window.onQuizSelectChange = onQuizSelectChange;
             const quizId = document.getElementById('selectQuiz')?.value;
             const banner = document.getElementById('quizTimeBanner');
             if (!quizId) {
@@ -2169,7 +2218,8 @@
             if (banner) banner.classList.remove('hidden');
         };
 
-        window.confirmUploadExcelToFirebase = async function() {
+        async function confirmUploadExcelToFirebase() {
+            window.confirmUploadExcelToFirebase = confirmUploadExcelToFirebase;
             if (pendingExcelQuestions.length === 0) return;
 
             const quizId = document.getElementById('adminQuestionQuizSelect')?.value;
@@ -2199,7 +2249,8 @@
             }
         };
 
-        window.handleAddQuiz = async function(e) {
+        async function handleAddQuiz(e) {
+            window.handleAddQuiz = handleAddQuiz;
             e.preventDefault();
             const title = document.getElementById('addQuizTitle').value.trim();
             const description = document.getElementById('addQuizDesc').value.trim();
@@ -2225,7 +2276,8 @@
             }
         };
 
-        window.toggleQuizActive = async function(firestoreId, currentStatus) {
+        async function toggleQuizActive(firestoreId, currentStatus) {
+            window.toggleQuizActive = toggleQuizActive;
             try {
                 const qzDoc = doc(db, 'artifacts', appId, 'public', 'data', 'quizzes', firestoreId);
                 await updateDoc(qzDoc, { isActive: !currentStatus });
@@ -2235,7 +2287,8 @@
             }
         };
 
-        window.deleteQuiz = async function(firestoreId) {
+        async function deleteQuiz(firestoreId) {
+            window.deleteQuiz = deleteQuiz;
             try {
                 await deleteDoc(doc(db, 'artifacts', appId, 'public', 'data', 'quizzes', firestoreId));
                 showStatus("Đã xóa cuộc thi!", "success");
@@ -2310,7 +2363,8 @@
             filterUnit.innerHTML = `<option value="ALL">-- Tất cả đơn vị --</option>` + optionsHtml;
         }
 
-        window.handleAddUnit = async function(e) {
+        async function handleAddUnit(e) {
+            window.handleAddUnit = handleAddUnit;
             e.preventDefault();
             const input = document.getElementById('addUnitInput');
             const unitName = input.value.trim();
@@ -2326,7 +2380,8 @@
             }
         };
 
-        window.deleteUnit = async function(firestoreId) {
+        async function deleteUnit(firestoreId) {
+            window.deleteUnit = deleteUnit;
             try {
                 await deleteDoc(doc(db, 'artifacts', appId, 'public', 'data', 'units', firestoreId));
                 showStatus("Đã xóa đơn vị!", "success");
@@ -2335,7 +2390,8 @@
             }
         };
 
-        window.seedDefaultUnits = async function() {
+        async function seedDefaultUnits() {
+            window.seedDefaultUnits = seedDefaultUnits;
             try {
                 const uRef = collection(db, 'artifacts', appId, 'public', 'data', 'units');
                 for (const name of defaultUnits) {
@@ -2365,7 +2421,8 @@
             `).join('');
         }
 
-        window.handleAddSingleQuestion = async function(e) {
+        async function handleAddSingleQuestion(e) {
+            window.handleAddSingleQuestion = handleAddSingleQuestion;
             e.preventDefault();
             const quizId = document.getElementById('adminQuestionQuizSelect')?.value;
             if (!quizId) {
@@ -2396,7 +2453,8 @@
             }
         };
 
-        window.clearAllQuestions = async function() {
+        async function clearAllQuestions() {
+            window.clearAllQuestions = clearAllQuestions;
             const quizId = document.getElementById('adminQuestionQuizSelect')?.value;
             if (!quizId) return;
 
@@ -2418,7 +2476,8 @@
             }
         };
 
-        window.seed100SampleQuestions = async function() {
+        async function seed100SampleQuestions() {
+            window.seed100SampleQuestions = seed100SampleQuestions;
             const quizId = document.getElementById('adminQuestionQuizSelect')?.value;
             if (!quizId) {
                 showStatus("Vui lòng chọn cuộc thi cần nạp câu hỏi mẫu!", "error");
@@ -2448,7 +2507,8 @@
             }
         };
 
-        window.processBatchImport = async function() {
+        async function processBatchImport() {
+            window.processBatchImport = processBatchImport;
             const quizId = document.getElementById('adminQuestionQuizSelect')?.value;
             if (!quizId) {
                 showStatus("Vui lòng chọn cuộc thi trước khi nạp văn bản!", "error");
@@ -2530,7 +2590,8 @@
         }
 
         // 7. XỬ LÝ QUÁ TRÌNH LÀM BÀI THI
-        window.handleLogin = function(e) {
+        function handleLogin(e) {
+            window.handleLogin = handleLogin;
             e.preventDefault();
             const qId = document.getElementById('selectQuiz').value;
             const quiz = activeQuizzesList.find(q => q.firestoreId === qId);
@@ -2627,7 +2688,8 @@
             `).join('');
         }
 
-        window.selectAnswer = function(qIdx, optionIdx) {
+        function selectAnswer(qIdx, optionIdx) {
+            window.selectAnswer = selectAnswer;
             userAnswers[qIdx] = optionIdx;
             document.getElementById('answeredCount').textContent = Object.keys(userAnswers).length;
 
@@ -2638,7 +2700,8 @@
             }
         };
 
-        window.scrollToQuestion = function(idx) {
+        function scrollToQuestion(idx) {
+            window.scrollToQuestion = scrollToQuestion;
             const el = document.getElementById(`q-card-${idx}`);
             if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
         };
@@ -2653,17 +2716,20 @@
             }, 1000);
         }
 
-        window.openSubmitModal = function() {
+        function openSubmitModal() {
+            window.openSubmitModal = openSubmitModal;
             const count = Object.keys(userAnswers).length;
             document.getElementById('modalSubmitText').textContent = `Bạn đã hoàn thành ${count}/20 câu hỏi. Bạn có chắc chắn muốn nộp bài?`;
             document.getElementById('modalSubmit').classList.remove('hidden');
         };
 
-        window.closeSubmitModal = function() {
+        function closeSubmitModal() {
+            window.closeSubmitModal = closeSubmitModal;
             document.getElementById('modalSubmit').classList.add('hidden');
         };
 
-        window.submitQuiz = async function() {
+        async function submitQuiz() {
+            window.submitQuiz = submitQuiz;
             closeSubmitModal();
             clearInterval(timerInterval);
 
@@ -2736,12 +2802,14 @@
             }).join('');
         }
 
-        window.startNewQuiz = function() {
+        function startNewQuiz() {
+            window.startNewQuiz = startNewQuiz;
             switchView('login');
         };
 
         // 8. BẢNG XẾP HẠNG
-        window.renderLeaderboardTable = function() {
+        function renderLeaderboardTable() {
+            window.renderLeaderboardTable = renderLeaderboardTable;
             const filterQuiz = document.getElementById('filterQuiz').value;
             const filterUnit = document.getElementById('filterUnit').value;
             const filterSearch = document.getElementById('filterSearch').value.toLowerCase().trim();

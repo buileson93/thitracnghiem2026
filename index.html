@@ -296,10 +296,26 @@
                         <button onclick="logoutAdmin()" class="bg-rose-50 hover:bg-rose-100 text-rose-700 border border-rose-200 px-3 py-1.5 rounded-lg text-xs font-semibold transition">
                             <i class="fas fa-sign-out-alt mr-1"></i> Đăng Xuất Admin
                         </button>
-                        <button onclick="switchView('login')" class="bg-slate-100 hover:bg-slate-200 text-slate-700 px-3 py-1.5 rounded-lg text-xs font-semibold transition">
-                            <i class="fas fa-times mr-1"></i> Đóng
-                        </button>
-                    </div>
+                </div>
+
+                <!-- Admin Quick Action Toolbar -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6 bg-indigo-50/70 p-3.5 rounded-2xl border border-indigo-100 shadow-sm">
+                    <button onclick="switchAdminTab('quizzes'); document.getElementById('addQuizTitle').focus();" class="flex items-center justify-center space-x-2 bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2.5 px-3 rounded-xl text-xs shadow-sm transition transform active:scale-95">
+                        <i class="fas fa-plus-circle text-sm"></i>
+                        <span>➕ Tạo Cuộc Thi Mới</span>
+                    </button>
+                    <button onclick="openAddQuestionManualModal()" class="flex items-center justify-center space-x-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-2.5 px-3 rounded-xl text-xs shadow-sm transition transform active:scale-95">
+                        <i class="fas fa-file-signature text-sm"></i>
+                        <span>📝 Tạo 1 Câu Hỏi Mới</span>
+                    </button>
+                    <button onclick="switchAdminTab('questions'); document.getElementById('excelFileInput').click();" class="flex items-center justify-center space-x-2 bg-amber-500 hover:bg-amber-600 text-white font-bold py-2.5 px-3 rounded-xl text-xs shadow-sm transition transform active:scale-95">
+                        <i class="fas fa-file-excel text-sm"></i>
+                        <span>📄 Nạp Từ File Excel</span>
+                    </button>
+                    <button onclick="toggleBatchModal(true)" class="flex items-center justify-center space-x-2 bg-slate-800 hover:bg-slate-900 text-white font-bold py-2.5 px-3 rounded-xl text-xs shadow-sm transition transform active:scale-95">
+                        <i class="fas fa-paste text-sm"></i>
+                        <span>📋 Dán Văn Bản Batch</span>
+                    </button>
                 </div>
 
                 <!-- Admin Tabs -->
@@ -593,6 +609,60 @@
                     Tải Lên Firebase
                 </button>
             </div>
+        </div>
+    </div>
+
+    <!-- MODAL THÊM 1 CÂU HỎI THỦ CÔNG -->
+    <div id="modalAddQuestionManual" class="hidden fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 overflow-y-auto">
+        <div class="bg-white rounded-2xl shadow-2xl max-w-lg w-full border border-slate-200 overflow-hidden">
+            <div class="bg-gradient-to-r from-emerald-600 to-teal-700 p-4 text-white flex justify-between items-center">
+                <h3 class="font-bold text-base flex items-center">
+                    <i class="fas fa-plus-circle mr-2 text-lg"></i> Thêm 1 Câu Hỏi Mới Thủ Công
+                </h3>
+                <button onclick="closeAddQuestionManualModal()" class="text-white/80 hover:text-white"><i class="fas fa-times text-lg"></i></button>
+            </div>
+            <form onsubmit="handleAddManualQuestion(event)" class="p-5 space-y-4 text-xs">
+                <div>
+                    <label class="block font-bold text-slate-700 mb-1">Thuộc Cuộc Thi / Đợt Thi <span class="text-red-500">*</span></label>
+                    <select id="manualQuizSelect" required class="w-full px-3 py-2 rounded-lg border border-slate-300 outline-none bg-white font-medium text-slate-800">
+                    </select>
+                </div>
+                <div>
+                    <label class="block font-bold text-slate-700 mb-1">Nội dung câu hỏi <span class="text-red-500">*</span></label>
+                    <textarea id="manualQuestionText" required rows="2" placeholder="Nhập nội dung câu hỏi..." class="w-full px-3 py-2 rounded-lg border border-slate-300 outline-none"></textarea>
+                </div>
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block font-semibold text-slate-600 mb-1">Đáp án A <span class="text-red-500">*</span></label>
+                        <input type="text" id="manualOptA" required placeholder="Nhập phương án A" class="w-full px-3 py-2 rounded-lg border border-slate-300 outline-none">
+                    </div>
+                    <div>
+                        <label class="block font-semibold text-slate-600 mb-1">Đáp án B <span class="text-red-500">*</span></label>
+                        <input type="text" id="manualOptB" required placeholder="Nhập phương án B" class="w-full px-3 py-2 rounded-lg border border-slate-300 outline-none">
+                    </div>
+                    <div>
+                        <label class="block font-semibold text-slate-600 mb-1">Đáp án C <span class="text-red-500">*</span></label>
+                        <input type="text" id="manualOptC" required placeholder="Nhập phương án C" class="w-full px-3 py-2 rounded-lg border border-slate-300 outline-none">
+                    </div>
+                    <div>
+                        <label class="block font-semibold text-slate-600 mb-1">Đáp án D <span class="text-red-500">*</span></label>
+                        <input type="text" id="manualOptD" required placeholder="Nhập phương án D" class="w-full px-3 py-2 rounded-lg border border-slate-300 outline-none">
+                    </div>
+                </div>
+                <div>
+                    <label class="block font-bold text-slate-700 mb-1">Đáp án đúng <span class="text-red-500">*</span></label>
+                    <select id="manualCorrectSelect" required class="w-full px-3 py-2 rounded-lg border border-slate-300 outline-none bg-white font-bold text-emerald-700">
+                        <option value="0">Phương án A</option>
+                        <option value="1">Phương án B</option>
+                        <option value="2">Phương án C</option>
+                        <option value="3">Phương án D</option>
+                    </select>
+                </div>
+                <div class="flex space-x-2 pt-2">
+                    <button type="button" onclick="closeAddQuestionManualModal()" class="w-1/2 py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold rounded-xl text-xs">Hủy</button>
+                    <button type="submit" class="w-1/2 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl text-xs shadow">Lưu Câu Hỏi</button>
+                </div>
+            </form>
         </div>
     </div>
 
@@ -2593,6 +2663,75 @@
                 showStatus("Lỗi thêm câu hỏi: " + err.message, "error");
             }
         };
+
+        function openAddQuestionManualModal() {
+            window.openAddQuestionManualModal = openAddQuestionManualModal;
+            const select = document.getElementById('manualQuizSelect');
+            if (select) {
+                select.innerHTML = activeQuizzesList.map(q => `<option value="${q.firestoreId}">${q.title}</option>`).join('');
+                const currentAdminQuiz = document.getElementById('adminQuestionQuizSelect')?.value;
+                if (currentAdminQuiz) select.value = currentAdminQuiz;
+            }
+            const modal = document.getElementById('modalAddQuestionManual');
+            if (modal) modal.classList.remove('hidden');
+        }
+
+        function closeAddQuestionManualModal() {
+            window.closeAddQuestionManualModal = closeAddQuestionManualModal;
+            const modal = document.getElementById('modalAddQuestionManual');
+            if (modal) modal.classList.add('hidden');
+        }
+
+        async function handleAddManualQuestion(e) {
+            window.handleAddManualQuestion = handleAddManualQuestion;
+            if (e && e.preventDefault) e.preventDefault();
+
+            const quizId = document.getElementById('manualQuizSelect')?.value;
+            const question = document.getElementById('manualQuestionText')?.value.trim();
+            const optA = document.getElementById('manualOptA')?.value.trim();
+            const optB = document.getElementById('manualOptB')?.value.trim();
+            const optC = document.getElementById('manualOptC')?.value.trim();
+            const optD = document.getElementById('manualOptD')?.value.trim();
+            const correctIndex = parseInt(document.getElementById('manualCorrectSelect')?.value || '0', 10);
+
+            if (!quizId || !question || !optA || !optB || !optC || !optD) {
+                showStatus("Vui lòng điền đầy đủ thông tin câu hỏi!", "error");
+                return;
+            }
+
+            const newQ = {
+                firestoreId: 'q-manual-' + Date.now() + '-' + Math.random().toString(36).substring(2,5),
+                quizId: quizId,
+                question: question,
+                options: [optA, optB, optC, optD],
+                correctIndex: correctIndex
+            };
+
+            activeQuestionsPool.push(newQ);
+            EMBEDDED_QUESTIONS.push(newQ);
+
+            if (db && collection && addDoc) {
+                try {
+                    const qRef = collection(db, 'artifacts', appId, 'public', 'data', 'questions');
+                    await addDoc(qRef, {
+                        quizId: quizId,
+                        question: question,
+                        options: [optA, optB, optC, optD],
+                        correctIndex: correctIndex,
+                        createdAt: serverTimestamp()
+                    });
+                } catch (err) {}
+            }
+
+            document.getElementById('manualQuestionText').value = '';
+            document.getElementById('manualOptA').value = '';
+            document.getElementById('manualOptB').value = '';
+            document.getElementById('manualOptC').value = '';
+            document.getElementById('manualOptD').value = '';
+            closeAddQuestionManualModal();
+            renderAdminQuestionsList();
+            showStatus("Đã thêm 1 câu hỏi mới thành công!", "success");
+        }
 
         async function clearAllQuestions() {
             window.clearAllQuestions = clearAllQuestions;

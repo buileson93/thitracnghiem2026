@@ -2148,9 +2148,34 @@
             
             renderAdminQuestionsList();
         }
-        }
 
         window.onQuizSelectChange = function() {
+            const quizId = document.getElementById('selectQuiz')?.value;
+            const banner = document.getElementById('quizTimeBanner');
+            if (!quizId) {
+                if (banner) banner.classList.add('hidden');
+                return;
+            }
+            const quiz = activeQuizzesList.find(q => q.firestoreId === quizId);
+            if (!quiz) {
+                if (banner) banner.classList.add('hidden');
+                return;
+            }
+            const timeStatus = checkQuizTimeStatus(quiz);
+            const titleEl = document.getElementById('quizTimeBannerTitle');
+            const rangeEl = document.getElementById('quizTimeBannerRange');
+            const statusEl = document.getElementById('quizTimeBannerStatus');
+
+            if (titleEl) titleEl.textContent = quiz.title;
+            if (rangeEl) rangeEl.textContent = `Thời gian: ${quiz.startTime || '---'} đến ${quiz.endTime || '---'}`;
+            if (statusEl) {
+                statusEl.textContent = `Trạng thái: ${timeStatus.text}`;
+                statusEl.className = `font-semibold ${timeStatus.color}`;
+            }
+
+            if (banner) banner.classList.remove('hidden');
+        };
+
         window.confirmUploadExcelToFirebase = async function() {
             if (pendingExcelQuestions.length === 0) return;
 
